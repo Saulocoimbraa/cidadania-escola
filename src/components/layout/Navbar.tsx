@@ -175,6 +175,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
 
             <button
+              onClick={() => handleNav('sobre')}
+              className={`px-3 py-1.5 rounded-lg transition-colors ${
+                currentView === 'sobre'
+                  ? 'text-[#1976D2] dark:text-blue-400 font-black bg-[#1976D2]/10 dark:bg-blue-500/10'
+                  : 'hover:text-[#1976D2] dark:hover:text-blue-400'
+              }`}
+            >
+              Sobre
+            </button>
+
+            <button
               onClick={() => handleNav('professor')}
               className="px-3.5 py-1.5 bg-[#7E57C2] text-white rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-[#673AB7] shadow-sm transition-all flex items-center gap-1.5"
             >
@@ -288,6 +299,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="w-full text-left px-4 py-3 rounded-xl font-bold text-sm text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
           >
             ❓ Perguntas Frequentes (FAQ)
+          </button>
+          <button
+            onClick={() => handleNav('sobre')}
+            className="w-full text-left px-4 py-3 rounded-xl font-bold text-sm text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
+          >
+            ℹ️ Sobre o Projeto & Autores
           </button>
           <button
             onClick={() => handleNav('professor')}

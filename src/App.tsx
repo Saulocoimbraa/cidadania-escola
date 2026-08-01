@@ -24,6 +24,7 @@ import { FaqGeralView } from './components/faq/FaqGeralView';
 import { AreaProfessorView } from './components/teacher/AreaProfessorView';
 import { BancoQuestoesView } from './components/teacher/BancoQuestoesView';
 import { ConquistasView } from './components/certificate/ConquistasView';
+import { SobreView } from './components/about/SobreView';
 
 export default function App() {
   const { theme, toggleTheme } = useTheme();
@@ -53,7 +54,8 @@ export default function App() {
       'faq-geral',
       'professor',
       'banco-questoes',
-      'conquistas'
+      'conquistas',
+      'sobre'
     ];
     return validViews.includes(hash) ? hash : 'home';
   });
@@ -135,6 +137,8 @@ export default function App() {
             progressPercentage={progressPercentage}
           />
         );
+      case 'sobre':
+        return <SobreView onNavigate={handleNavigate} />;
       case 'home':
       default:
         return (
