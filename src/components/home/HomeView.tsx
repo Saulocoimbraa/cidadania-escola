@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { ALL_PILLARS } from '../../data/cartilhaData';
 import { SpeechButton } from '../common/SpeechButton';
+import bgMain from '../../img/bg-main.jpg';
 
 interface HomeViewProps {
   onNavigate: (view: string) => void;
@@ -41,7 +42,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
   return (
     <div className="space-y-12 sm:space-y-16 animate-fadeIn">
       {/* 1. Hero Banner Principal (Bold Typography Theme) */}
-      <section className="relative overflow-hidden rounded-3xl bg-white dark:bg-slate-900 border-4 border-[#1976D2] dark:border-blue-500 p-6 sm:p-12 shadow-xl">
+      <section
+        className="relative overflow-hidden rounded-3xl border-4 border-[#1976D2] dark:border-blue-500 p-6 sm:p-12 shadow-xl bg-white dark:bg-slate-900"
+        style={{ backgroundImage: `url(${bgMain})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      >
+        {/* Overlay para garantir leitura do texto */}
+        <div className="absolute inset-0 bg-white/85 dark:bg-slate-900/90 z-0 pointer-events-none" />
         <div className="relative z-10 max-w-3xl space-y-6">
           <div className="bg-[#FB8C00] text-white text-xs font-bold px-3.5 py-1.5 rounded-full w-fit uppercase tracking-wider shadow-sm">
             Ensino Fundamental - Anos Finais • 11 a 15 anos

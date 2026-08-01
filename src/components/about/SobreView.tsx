@@ -13,6 +13,9 @@ import {
   Heart
 } from 'lucide-react';
 import { SpeechButton } from '../common/SpeechButton';
+import reginaPhoto from '../../img/regina.jpg';
+import deisePhoto from '../../img/deise.jpg';
+import sauloPhoto from '../../img/saulo.jpg';
 
 interface SobreViewProps {
   onNavigate: (view: string) => void;
@@ -23,21 +26,21 @@ export const SobreView: React.FC<SobreViewProps> = ({ onNavigate }) => {
     {
       name: 'Regina Santos',
       role: 'Idealização & Coordenação Pedagógica',
-      photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
+      photo: reginaPhoto,
       badgeColor: '#1976D2',
       biography: 'Educadora apaixonada pelo desenvolvimento humano e cidadão no ambiente escolar, Regina Santos atua na idealização pedagógica do projeto Cidadania na Escola, integrando práticas socioemocionais e princípios da BNCC para fortalecer o protagonismo juvenil, a empatia e a construção de valores éticos entre estudantes do Ensino Fundamental.'
     },
     {
       name: 'Deise Marroquim',
       role: 'Gestão Educacional & Mediação Escolar',
-      photo: 'https://images.unsplash.com/photo-1580894732413-a704939a8c66?auto=format&fit=crop&w=600&q=80',
+      photo: deisePhoto,
       badgeColor: '#7E57C2',
       biography: 'Especialista em gestão educacional e mediação de conflitos escolares, Deise Marroquim dedica sua trajetória à criação de ambientes de aprendizagem acolhedores e inclusivos, focando no combate ao bullying, na promoção da cultura de paz e no fortalecimento do diálogo transformador entre alunos, professores e a comunidade escolar.'
     },
     {
       name: 'Saulo Coimbra',
       role: 'Metodologia & Inovação Educacional',
-      photo: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+      photo: sauloPhoto,
       badgeColor: '#FB8C00',
       biography: 'Educador e entusiasta de tecnologias educacionais aplicadas à cidadania, Saulo Coimbra atua na estruturação metodológica e interativa do projeto Cidadania na Escola, unindo inovação digital, games educativos e conteúdos acessíveis para engajar adolescentes na vivência prática dos seus direitos, deveres e autonomia.'
     }
