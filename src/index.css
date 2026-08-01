@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@layer base {
+  :root, .light {
+    --bg-page: #F0F4F8;
+    --bg-card: #ffffff;
+    --text-main: #1D1D1D;
+    --text-muted: #555555;
+    --border-color: #E1E8ED;
+    --primary-blue: #1976D2;
+    --primary-purple: #7E57C2;
+    --primary-orange: #FB8C00;
+    --primary-green: #43A047;
+    --card-shadow: 0 4px 15px -1px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark {
+    --bg-page: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+    --primary-blue: #3b82f6;
+    --primary-purple: #9333ea;
+    --primary-orange: #f97316;
+    --primary-green: #22c55e;
+    --card-shadow: 0 4px 15px -1px rgba(0, 0, 0, 0.35);
+  }
+
+  .pastel {
+    --bg-page: #fefcf8;
+    --bg-card: #ffffff;
+    --text-main: #2d3748;
+    --text-muted: #718096;
+    --border-color: #f0e6d2;
+    --primary-blue: #4FA8E8;
+    --primary-purple: #9D7FD8;
+    --primary-orange: #FCA44D;
+    --primary-green: #68B86D;
+    --card-shadow: 0 6px 18px -2px rgba(251, 140, 0, 0.08);
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+  }
+}
+
+/* Bold Typography Utility styles */
+.bold-shadow-blue {
+  box-shadow: 0 5px 0 #1565C0;
+}
+.bold-shadow-green {
+  box-shadow: 0 5px 0 #2E7D32;
+}
+.bold-shadow-orange {
+  box-shadow: 0 5px 0 #EF6C00;
+}
+.bold-shadow-purple {
+  box-shadow: 0 5px 0 #5E35B1;
+}
+
+/* Custom scrollbar for friendly look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Focus styles for WCAG accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid #1976D2;
+  outline-offset: 2px;
+}

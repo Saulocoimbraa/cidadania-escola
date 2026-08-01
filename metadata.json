@@ -1,0 +1,8 @@
+{
+  "name": "Remix Cidadania na Escola",
+  "description": "Portal interativo e gamificado de cidadania para estudantes do Ensino Fundamental II (11 a 15 anos), professores e famílias.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
