@@ -16,6 +16,7 @@ import { SpeechButton } from '../common/SpeechButton';
 
 interface ReflexaoViewProps {
   onNavigate: (view: string) => void;
+  onSaveReflection?: (promptId: string, promptText: string, userNote: string) => void;
 }
 
 interface SavedNote {
@@ -24,7 +25,7 @@ interface SavedNote {
   date: string;
 }
 
-export const ReflexaoView: React.FC<ReflexaoViewProps> = ({ onNavigate }) => {
+export const ReflexaoView: React.FC<ReflexaoViewProps> = ({ onNavigate, onSaveReflection }) => {
   const [selectedCat, setSelectedCat] = useState('Todos');
   const [notes, setNotes] = useState<Record<string, string>>({});
   const [saveSuccess, setSaveSuccess] = useState<string | null>(null);
@@ -40,10 +41,20 @@ export const ReflexaoView: React.FC<ReflexaoViewProps> = ({ onNavigate }) => {
     }
   }, []);
 
-  const handleSaveNote = (promptId: string) => {
+  const handleSaveNote = (promptId: string, promptText: string) => {
     try {
+      const noteText = notes[promptId] || '';
+      if (!noteText.trim()) {
+        alert('Por favor, escreva alguma reflexão antes de salvar!');
+        return;
+      }
       const updated = { ...notes };
       localStorage.setItem('cidadania_diario_reflexao', JSON.stringify(updated));
+      
+      if (onSaveReflection) {
+        onSaveReflection(promptId, promptText, noteText);
+      }
+
       setSaveSuccess(promptId);
       setTimeout(() => setSaveSuccess(null), 3000);
     } catch (e) {
@@ -182,7 +193,7 @@ export const ReflexaoView: React.FC<ReflexaoViewProps> = ({ onNavigate }) => {
 
                     <button
                       type="button"
-                      onClick={() => handleSaveNote(prompt.id)}
+                      onClick={() => handleSaveNote(prompt.id, prompt.question)}
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs shadow-sm transition-colors"
                     >
                       <Save className="h-3.5 w-3.5" />

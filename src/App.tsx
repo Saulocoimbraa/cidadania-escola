@@ -37,7 +37,8 @@ export default function App() {
     clearNewBadge,
     earnedBadges,
     totalPoints,
-    progressPercentage
+    progressPercentage,
+    saveReflectionNote
   } = useProgress();
 
   const [currentView, setCurrentView] = useState<string>(() => {
@@ -121,7 +122,12 @@ export default function App() {
           />
         );
       case 'reflexao':
-        return <ReflexaoView onNavigate={handleNavigate} />;
+        return (
+          <ReflexaoView
+            onNavigate={handleNavigate}
+            onSaveReflection={saveReflectionNote}
+          />
+        );
       case 'faq-geral':
         return <FaqGeralView onNavigate={handleNavigate} />;
       case 'professor':

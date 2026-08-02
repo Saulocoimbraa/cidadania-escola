@@ -46,7 +46,7 @@ export const QuizComponent: React.FC<QuizComponentProps> = ({
       setIsAnswered(false);
     } else {
       setIsCompleted(true);
-      onComplete(score + (selectedOption === currentQuestion.correctIndex && !isCompleted ? 1 : 0), questions.length);
+      onComplete(score, questions.length);
     }
   };
 
