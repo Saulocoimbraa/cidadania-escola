@@ -28,14 +28,14 @@ export const BIBLIOTECA_ITEMS: BibliotecaItem[] = [
   },
   {
     id: 'bib-3',
-    title: 'Como o Cérebro Aprende? Dicas de Neurociência para Jovens',
+    title: 'As incríveis formas como a leitura molda o cérebro humano',
     category: 'Educação',
     type: 'Vídeo',
-    description: 'Vídeo educativo animado explicando a formação das sinapses, a importância de dormir e como o esforço contínuo fortalece a inteligência.',
+    description: 'A leitura não é uma habilidade com a qual nascemos: são circuitos cerebrais que a humanidade levou milhares de anos para desenvolver e aperfeiçoar. Quem explica isso é a neurocientista Maryanne Wolf, autora do livro “O Cérebro Leitor” (editora Contexto), em entrevista à BBC News Brasil.',
     ageGroup: 'Para todos',
-    readingTime: '12 min de vídeo',
-    url: 'https://www.youtube.com/results?search_query=como+o+cerebro+aprende+neurociencia+canal+futura',
-    authorOrSource: 'Canal Futura / Neurociência na Escola',
+    readingTime: '11 min de vídeo',
+    url: 'https://www.youtube.com/watch?v=sSIZ34D9qC8',
+    authorOrSource: 'Canal BBC News Brasil / Neurociência',
     color: '#1976D2'
   },
   // Respeito

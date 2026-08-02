@@ -17,7 +17,7 @@ import jsPDF from 'jspdf';
 import { ALL_BADGES } from '../../data/badgesData';
 import { SpeechButton } from '../common/SpeechButton';
 import { BadgeTier } from '../../types';
-import certificadoTemplate from '../../img/certificado_template.png';
+import certificadoTemplate from '../../img/certificado.png';
 
 interface ConquistasViewProps {
   onNavigate: (view: string) => void;
@@ -122,45 +122,47 @@ export const ConquistasView: React.FC<ConquistasViewProps> = ({
         // 1. Desenhar o template de fundo
         doc.addImage(img, 'PNG', 0, 0, W, H);
 
-        // 2. Escrever o Nome do estudante (acima da linha preta do template)
-        // A linha preta do template está em torno de Y = 96. Colocamos a base do texto em Y = 93.
+        // 2. Escrever o Nome do estudante (acima da linha preta central do template)
         doc.setFont('helvetica', 'bold');
-        doc.setFontSize(22);
+        doc.setFontSize(24);
         doc.setTextColor(25, 118, 210); // Azul chamativo (#1976D2)
         const nameText = studentName.trim().toUpperCase();
-        doc.text(nameText, W / 2, 93, { align: 'center' });
+        // Em certificado.png, a linha do nome está posicionada a Y = 89mm
+        doc.text(nameText, W / 2, 86, { align: 'center' });
 
-        // 3. Escrever as Conquistas (no espaço livre abaixo do texto principal e acima de "Juntos...")
-        // Usamos texto normal (sem emojis) para não quebrar a codificação de fontes do jsPDF.
-        const earnedBadgesForPdf = ALL_BADGES.filter(b => earnedIds.has(b.id));
-        if (earnedBadgesForPdf.length > 0) {
-          doc.setFont('helvetica', 'bold');
-          doc.setFontSize(10);
-          doc.setTextColor(100, 100, 100);
-          doc.text('CONQUISTAS REALIZADAS:', W / 2, 138, { align: 'center' });
-
-          const chips = earnedBadgesForPdf.map(b => {
-            const tier = badgeTiers[b.id];
-            const tierLabel = tier ? `[${tier.toUpperCase()}]` : '[OK]';
-            return `${tierLabel} ${b.title.toUpperCase()}`;
-          });
-
-          const chipsLine1 = chips.slice(0, 3).join('    ·    ');
-          const chipsLine2 = chips.slice(3).join('    ·    ');
-          doc.text(chipsLine1, W / 2, 150, { align: 'center' });
-          if (chipsLine2) {
-            doc.text(chipsLine2, W / 2, 156, { align: 'center' });
-          }
-        }
-
-        // 4. Escrever a Data de hoje por cima de "Data: ___/___/____" no rodapé
-        // A palavra "Data" no template fica à esquerda, a linha preta para preencher a data está logo em seguida.
-        // Centralizando o texto da data no meio da linha (X = 96) e Y = 186.
-        const today = new Date().toLocaleDateString('pt-BR');
+        // 3. Escrever os 4 Pilares de Conquistas (2 colunas, cores originais do app)
+        // Coluna 1
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(12);
-        doc.setTextColor(50, 50, 50);
-        doc.text(today, 96, 186, { align: 'center' });
+        
+        // Educação
+        doc.setTextColor(25, 118, 210); // #1976D2
+        doc.text('• EDUCAÇÃO & PROTAGONISMO', 45, 125);
+
+        // Disciplina
+        doc.setTextColor(251, 140, 0); // #FB8C00
+        doc.text('• DISCIPLINA & AUTONOMIA', 45, 135);
+
+        // Coluna 2
+        // Respeito
+        doc.setTextColor(126, 87, 194); // #7E57C2
+        doc.text('• RESPEITO & CULTURA DE PAZ', 150, 125);
+
+        // Cuidado
+        doc.setTextColor(67, 160, 71); // #43A047
+        doc.text('• CUIDADO & PATRIMÔNIO PÚBLICO', 150, 135);
+
+        // 4. Linha de Data e Progresso
+        const today = new Date().toLocaleDateString('pt-BR');
+        doc.setFont('helvetica', 'bolditalic');
+        doc.setFontSize(11);
+        doc.setTextColor(100, 114, 130);
+        doc.text(
+          `Data de emissão: ${today}  •  Pontuação Acumulada: ${totalPoints} pts  •  Medalhas Conquistadas: ${earnedBadges.length} de ${ALL_BADGES.length}`,
+          W / 2,
+          152,
+          { align: 'center' }
+        );
 
         doc.save(`Certificado_Estudante_Cidadao_${studentName.replace(/\s+/g, '_')}.pdf`);
         setPdfSuccess(true);
