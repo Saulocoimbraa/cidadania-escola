@@ -261,9 +261,26 @@ export const RESPEITO_PILLAR: PillarContent = {
     }
   ],
   saibaMais: [
-    { name: 'SaferNet Brasil', description: 'Central nacional de segurança digital e combate ao ciberbullying.', url: 'https://new.safernet.org.br' },
-    { name: 'UNICEF - Chega de Bullying', description: 'Campanha de prevenção à violência nas escolas brasileiras.', url: 'https://www.unicef.org/brazil' },
-    { name: 'Canal Futura', description: 'Séries educativas sobre Direitos Humanos e convivência cidadã.', url: 'https://www.futura.org.br' }
+    {
+      name: 'Guia Internet Segura (PDF)',
+      description: 'Material oficial completo para baixar no celular. Traz ilustrações e dicas práticas de como se proteger, salvar provas e agir contra violências online.',
+      url: 'https://internetsegura.br/pdf/guia-internet-segura.pdf'
+    },
+    {
+      name: 'Reportagem UNICEF: O que é e como pará-lo?',
+      description: 'Um artigo em formato de perguntas e respostas, ensinando a diferenciar "brincadeira" de violência e mostrando o que fazer para buscar ajuda.',
+      url: 'https://www.unicef.org/brazil/cyberbullying-o-que-eh-e-como-para-lo'
+    },
+    {
+      name: 'Vídeos: Campanha Internet sem Vacilo',
+      description: 'Página da campanha do UNICEF com vídeos curtos abordando saúde mental, lidar com haters e manter o respeito nas redes.',
+      url: 'https://www.unicef.org/brazil/internet-sem-vacilo'
+    },
+    {
+      name: 'Guia Interativo para Adolescentes (CGI.br)',
+      description: 'Seção do portal focada exclusivamente em adolescentes. Contém testes, vídeos e informações sobre privacidade e segurança digital.',
+      url: 'https://internetsegura.br/adolescentes/'
+    }
   ],
   stories: [
     {
