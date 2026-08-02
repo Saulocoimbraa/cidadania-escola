@@ -4,14 +4,14 @@ export const BIBLIOTECA_ITEMS: BibliotecaItem[] = [
   // Educação
   {
     id: 'bib-1',
-    title: 'O Pequeno Príncipe e a Jornada do Conhecimento',
+    title: 'Curtametragem: Vida de Maria',
     category: 'Educação',
-    type: 'Livro',
-    description: 'Um clássico da literatura mundial que ensina sobre curiosidade, afeto, valorizar perguntas e a essência do aprendizado.',
-    ageGroup: '11-13 anos',
-    readingTime: '90 min (Leitura)',
-    url: 'https://www.sesirs.org.br/sites/default/files/paragraph--files/o_pequeno_principe_-_antoine_de_saint-exupery_1.pdf',
-    authorOrSource: 'Antoine de Saint-Exupéry / Editora',
+    type: 'Vídeo',
+    description: 'Vida Maria é um premiado curta-metragem brasileiro de animação em 3D, lançado em 2006 e dirigido pelo animador cearense Márcio Ramos',
+    ageGroup: 'Para todos',
+    readingTime: '9 min de vídeo',
+    url: 'https://youtu.be/yFpoG_htum4?si=8DNkz2kcf0ZO_-i0',
+    authorOrSource: 'Márcio Ramos',
     color: '#1976D2'
   },
   {
