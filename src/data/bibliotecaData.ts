@@ -165,14 +165,14 @@ export const BIBLIOTECA_ITEMS: BibliotecaItem[] = [
   },
   {
     id: 'bib-14',
-    title: 'Malala e o Direito à Escola para Todas as Meninas',
+    title: 'Malala: “A Educação para as meninas deve ser prioridade no Brasil”',
     category: 'Cultura de Paz',
-    type: 'Livro',
-    description: 'A trajetória de Malala Yousafzai em defesa da paz e do direito à educação como a arma mais poderosa do mundo.',
-    ageGroup: '11-15 anos',
-    readingTime: 'Livro (120 min)',
-    url: 'https://www.unicef.org/brazil/busca?q=malala+educacao',
-    authorOrSource: 'Malala Yousafzai / Edição Jovem',
+    type: 'Artigo',
+    description: 'Matéria sobre a participação da ativista paquistanesa Malala Yousafzai em debate sobre Educação e empoderamento feminino em São Paulo.',
+    ageGroup: 'Para todos',
+    readingTime: '6 min de leitura',
+    url: 'https://novaescola.org.br/conteudo/12014/malala-a-educacao-para-as-meninas-deve-ser-prioridade-do-brasil',
+    authorOrSource: 'Nova Escola',
     color: '#E91E63'
   },
   // Convivência Escolar
@@ -184,20 +184,20 @@ export const BIBLIOTECA_ITEMS: BibliotecaItem[] = [
     description: 'Como os estudantes podem criar círculos de conversa, assembleias e projetos esportivos e culturais para melhorar o clima na escola.',
     ageGroup: 'Para todos',
     readingTime: '12 min de leitura',
-    url: 'https://www.gov.br/mec/pt-br/busca?SearchableText=gremio+estudantil',
+    url: 'https://www.gov.br/mec/pt-br/acesso-a-informacao/perguntas-frequentes/participa-jovem-educacao',
     authorOrSource: 'Ministério da Educação (MEC)',
     color: '#00897B'
   },
   {
     id: 'bib-16',
-    title: 'Podcast Convivência Nota 10: Vozes dos Alunos e Professores',
+    title: 'Desafio nas Escolas',
     category: 'Convivência Escolar',
-    type: 'Podcast',
-    description: 'Entrevistas curtas inspiradoras com turmas que transformaram o ambiente escolar vencendo o bullying e cuidando do patrimônio.',
-    ageGroup: 'Para todos',
-    readingTime: '18 min de áudio',
-    url: 'https://www.futura.org.br/busca?q=convivencia+escolar',
-    authorOrSource: 'Canal Futura / Juventude Cidadã',
+    type: 'Vídeo',
+    description: 'A série Desafio nas Escolas acompanha grupos de estudantes que precisam realizar grandes transformações em suas comunidades. Na quinta temporada, a turma do 8o ano da EMEF Heitor de Alencar Furtado, em São Paulo (SP), embarca em uma jornada para tirar do papel um sonho que pode mudar o destino de todos: um baile de formatura que celebre as conquistas do grupo e resgate a alegria de frequentar a escola.',
+    ageGroup: '11-13 anos',
+    readingTime: '20 min',
+    url: 'https://futura.frm.org.br/conteudo/midias-educativas/noticia/nova-temporada-de-desafio-nas-escolas-estreia-no-canal-futura',
+    authorOrSource: 'Canal Futura / Globoplay',
     color: '#00897B'
   }
 ];
