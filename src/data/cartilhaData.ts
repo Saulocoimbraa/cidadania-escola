@@ -115,7 +115,7 @@ export const EDUCAO_PILLAR: PillarContent = {
   saibaMais: [
     { name: 'O Pequeno Príncipe (PDF)', description: 'Clássico literário que ensina sobre curiosidade, afeto, valorizar perguntas e a essência do aprendizado.', url: 'https://www.sesirs.org.br/sites/default/files/paragraph--files/o_pequeno_principe_-_antoine_de_saint-exupery_1.pdf' },
     { name: 'Clube de Protagonismo', description: 'Guia do estudante para criação de espaços de aprendizagem autônomos na escola.', url: 'https://portal.educacao.pe.gov.br/wp-content/uploads/2025/02/CLUBE-DE-PROTAGONISMO-ESTUDANTES.pdf' },
-    { name: 'BBC Cérebro Leitor', description: 'Vídeo animado com Maryanne Wolf sobre as incríveis formas como a leitura molda o cérebro.', url: 'https://www.youtube.com/watch?v=sSIZ34D9qC8' }
+    { name: 'As incríveis formas como a leitura molda o cérebro humano', description: 'A leitura não é uma habilidade com a qual nascemos: são circuitos cerebrais que a humanidade levou milhares de anos para desenvolver e aperfeiçoar.', url: 'https://www.youtube.com/watch?v=sSIZ34D9qC8' }
   ],
   quiz: [
     {

@@ -53,13 +53,13 @@ export const BIBLIOTECA_ITEMS: BibliotecaItem[] = [
   },
   {
     id: 'bib-5',
-    title: 'Guia Jovem SaferNet: Como Identificar e Denunciar o Ciberbullying',
+    title: 'Ciberbullying: saiba como identificar e como agir.',
     category: 'Respeito',
     type: 'Artigo',
-    description: 'Manual com orientações seguras sobre redes sociais, privacidade, prints, bloqueios e respeito digital para adolescentes.',
+    description: 'Orientações sobre como identificar e denunciar o ciber bullying. O material aborda como se proteger de ofensas, boatos e outros ataques virtuais, além de apresentar os canais oficiais para denúncia.',
     ageGroup: 'Para todos',
     readingTime: '10 min de leitura',
-    url: 'https://new.safernet.org.br',
+    url: 'https://new.safernet.org.br/content/ciberbullying-saiba-como-identificar-e-como-agir',
     authorOrSource: 'SaferNet Brasil / Ministério da Justiça',
     color: '#7E57C2'
   },
