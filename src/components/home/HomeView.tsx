@@ -19,6 +19,9 @@ import { ALL_PILLARS } from '../../data/cartilhaData';
 import { SpeechButton } from '../common/SpeechButton';
 import bgMain from '../../img/bg-main.jpg';
 import imgEducacao from '../../img/edu.png';
+import imgRespeito from '../../img/respeito.png';
+import imgDisciplina from '../../img/disciplina.png';
+import imgCuidado from '../../img/cuidado.png';
 
 interface HomeViewProps {
   onNavigate: (view: string) => void;
@@ -200,15 +203,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <div
                 key={pillar.id}
                 onClick={() => onNavigate(pillar.id)}
-                className={`group relative overflow-hidden rounded-3xl ${bgClass} border-2 border-b-8 p-8 ${isEducacao ? 'pr-36 sm:pr-44' : ''} shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all cursor-pointer flex flex-col justify-between`}
+                className={`group relative overflow-hidden rounded-3xl ${bgClass} border-2 border-b-8 p-8 pr-36 sm:pr-44 shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all cursor-pointer flex flex-col justify-between`}
               >
-                {/* Imagem decorativa do pilar Educação */}
+                {/* Imagem decorativa do pilar */}
                 {isEducacao && (
-                  <img
-                    src={imgEducacao}
-                    alt="Personagem Educação"
-                    className="absolute bottom-0 right-0 h-full max-h-52 sm:max-h-64 w-auto object-contain object-bottom pointer-events-none select-none z-0 opacity-95"
-                  />
+                  <img src={imgEducacao} alt="Personagem Educação" className="absolute bottom-0 right-0 h-full max-h-52 sm:max-h-64 w-auto object-contain object-bottom pointer-events-none select-none z-0 opacity-95" />
+                )}
+                {isRespeito && (
+                  <img src={imgRespeito} alt="Personagem Respeito" className="absolute bottom-0 right-0 h-full max-h-52 sm:max-h-64 w-auto object-contain object-bottom pointer-events-none select-none z-0 opacity-95" />
+                )}
+                {isDisciplina && (
+                  <img src={imgDisciplina} alt="Personagem Disciplina" className="absolute bottom-0 right-0 h-full max-h-52 sm:max-h-64 w-auto object-contain object-bottom pointer-events-none select-none z-0 opacity-95" />
+                )}
+                {isCuidado && (
+                  <img src={imgCuidado} alt="Personagem Cuidado" className="absolute bottom-0 right-0 h-full max-h-52 sm:max-h-64 w-auto object-contain object-bottom pointer-events-none select-none z-0 opacity-95" />
                 )}
                 <div className="relative z-10">
                   <div className="flex items-center justify-between mb-4">
