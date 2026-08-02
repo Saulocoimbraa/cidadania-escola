@@ -159,8 +159,8 @@ export const BIBLIOTECA_ITEMS: BibliotecaItem[] = [
     description: 'Como resolver desentendimentos entre colegas sem gritar, sem ofender e encontrando acordos onde todos ganhem.',
     ageGroup: '13-15 anos',
     readingTime: '9 min de leitura',
-    url: 'https://novaescola.org.br/busca?q=comunicacao+nao+violenta',
-    authorOrSource: 'Instituto Palas Athena / Cultura de Paz',
+    url: 'https://novaescola.org.br/conteudo/18280/comunicacao-nao-violenta-o-que-e-como-aplica-la-no-dia-a-dia-escolar',
+    authorOrSource: 'Nova Escola / Cultura de Paz',
     color: '#E91E63'
   },
   {
