@@ -236,6 +236,7 @@ export const JogosView: React.FC<JogosViewProps> = ({ onNavigate, onCompleteQuiz
             text="Arcade da Cidadania. Escolha entre o Jogo da Memória dos Pilares, o Quiz Relâmpago Verdadeiro ou Falso e o desafio da Palavra Secreta."
             label="Ouvir Instruções dos Jogos"
             size="md"
+            variant="white"
           />
         </div>
       </section>

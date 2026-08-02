@@ -281,7 +281,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
           <div className="flex items-center gap-4">
             <div className="text-center px-4 py-2 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
-              <div className="text-2xl font-black text-amber-400">{badgesCount} / 6</div>
+              <div className="text-2xl font-black text-amber-400">{badgesCount} / 5</div>
               <div className="text-[10px] font-semibold uppercase tracking-wider text-slate-300">Medalhas</div>
             </div>
 

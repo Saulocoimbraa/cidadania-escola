@@ -106,6 +106,7 @@ export const ReflexaoView: React.FC<ReflexaoViewProps> = ({ onNavigate, onSaveRe
             text="Espaço Pense Sobre Isso: Seu Diário de Cidadania e Reflexão. Leia textos reflexivos da cartilha e responda às perguntas provocativas sobre empatia, uso responsável de telas e autonomia."
             label="Ouvir Introdução do Espaço"
             size="md"
+            variant="white"
           />
         </div>
       </section>

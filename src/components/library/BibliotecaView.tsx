@@ -80,6 +80,7 @@ export const BibliotecaView: React.FC<BibliotecaViewProps> = ({ onNavigate }) =>
             text="Biblioteca Aprenda Mais: Livros, vídeos, artigos e podcasts com curadoria especial para estudantes de 11 a 15 anos e educadores."
             label="Ouvir Introdução da Biblioteca"
             size="md"
+            variant="white"
           />
         </div>
       </section>
