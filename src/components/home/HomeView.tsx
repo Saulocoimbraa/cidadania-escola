@@ -44,10 +44,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
   // Para ativar: importe o PNG e substitua undefined pelo caminho, ex: `url(${imgEducacao})`
   // import imgEducacao from '../../img/pillar-educacao.png'; (adicionar no topo do arquivo)
   const pillarBgImage: { [key: string]: string | undefined } = {
-    educacao: `url(${imgEducacao})`,
-    respeito: undefined, // ex: `url(${imgRespeito})`
-    disciplina: undefined, // ex: `url(${imgDisciplina})`
-    cuidado: undefined, // ex: `url(${imgCuidado})`
+    educacao: undefined,
+    respeito: undefined,
+    disciplina: undefined,
+    cuidado: undefined,
   };
 
   return (
@@ -200,14 +200,17 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <div
                 key={pillar.id}
                 onClick={() => onNavigate(pillar.id)}
-                className={`group relative overflow-hidden rounded-3xl ${bgClass} border-2 border-b-8 p-8 shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all cursor-pointer flex flex-col justify-between`}
-                style={pillarBgImage[pillar.id] ? {
-                  backgroundImage: pillarBgImage[pillar.id],
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center right',
-                } : undefined}
+                className={`group relative overflow-hidden rounded-3xl ${bgClass} border-2 border-b-8 p-8 ${isEducacao ? 'pr-36 sm:pr-44' : ''} shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all cursor-pointer flex flex-col justify-between`}
               >
-                <div>
+                {/* Imagem decorativa do pilar Educação */}
+                {isEducacao && (
+                  <img
+                    src={imgEducacao}
+                    alt="Personagem Educação"
+                    className="absolute bottom-0 right-0 h-full max-h-52 sm:max-h-64 w-auto object-contain object-bottom pointer-events-none select-none z-0 opacity-95"
+                  />
+                )}
+                <div className="relative z-10">
                   <div className="flex items-center justify-between mb-4">
                     <div
                       className="flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-md group-hover:scale-110 transition-transform font-black"
@@ -232,7 +235,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   </p>
                 </div>
 
-                <div className="flex items-center justify-between pt-4 border-t border-slate-300/60 dark:border-slate-800">
+                <div className="relative z-10 flex items-center justify-between pt-4 border-t border-slate-300/60 dark:border-slate-800">
                   <span className="text-xs font-extrabold text-slate-600 dark:text-slate-400 flex items-center gap-1.5 uppercase tracking-wider">
                     <CheckCircle2 className="h-4 w-4 text-green-600 dark:text-green-400" />
                     Cartilha • FAQ • Vídeos • Quiz
