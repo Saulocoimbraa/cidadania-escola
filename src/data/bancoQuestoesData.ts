@@ -1,15 +1,11 @@
-import { QuestaoBanco } from '../types';
-
 export interface QuestaoBNCC {
   id: string;
-  pillar: string;
-  yearGroup: string;
-  difficulty: string;
-  type: string;
+  pillar: 'Educação' | 'Respeito' | 'Disciplina' | 'Cuidado';
+  difficulty: 'Fácil' | 'Médio' | 'Difícil';
   question: string;
   bnccCode: string;
-  answerKey: string;
-  options?: string[];
+  answerKey: string; // Ex: 'B'
+  options: string[]; // Sempre 4 opções
 }
 
 export const BANCO_QUESTOES_BNCC: QuestaoBNCC[] = [
@@ -17,171 +13,158 @@ export const BANCO_QUESTOES_BNCC: QuestaoBNCC[] = [
   {
     id: 'bq-bncc-01',
     pillar: 'Educação',
-    yearGroup: '6º ano',
     difficulty: 'Fácil',
-    type: 'objetiva',
-    question: 'Sobre o papel do estudante no Ensino Fundamental - Anos Finais (11 a 15 anos), qual atitude melhor reflete o protagonismo juvenil de acordo com a BNCC?',
+    question: 'Sobre o papel do estudante no Ensino Fundamental (11 a 15 anos), qual atitude reflete o protagonismo juvenil conforme as diretrizes da BNCC?',
     bnccCode: 'BNCC-CG10',
-    answerKey: 'B) Desenvolver autonomia, curiosidade intelectual, senso crítico e colaborar em decisões conjuntas da comunidade escolar.',
+    answerKey: 'B',
     options: [
       'Executar tarefas escolares de forma passiva, sem opinar sobre a realidade escolar.',
-      'Desenvolver autonomia, curiosidade intelectual, senso crítico e colaborar em decisões conjuntas da comunidade escolar.',
+      'Desenvolver autonomia, curiosidade intelectual, senso crítico e colaborar na comunidade escolar.',
       'Estudar apenas as disciplinas de que gosta, ignorando o restante do currículo.',
-      'Transferir para a coordenação pedagógica toda a responsabilidade pelos conflitos de sala.'
+      'Transferir para os pais toda a responsabilidade pelo seu próprio aprendizado.'
     ]
   },
   {
     id: 'bq-bncc-02',
     pillar: 'Educação',
-    yearGroup: '7º ano',
     difficulty: 'Médio',
-    type: 'situacao-problema',
-    question: 'Em uma turma do 7º ano, alguns alunos alegam que trabalhos em grupo geram desentendimentos e preferem fazer tudo sozinhos. Como o conceito de cidadania escolar justifica a realização de trabalhos em equipe?',
-    bnccCode: 'BNCC-CG09',
-    answerKey: 'O trabalho em grupo desenvolve cooperação, negociação, escuta empática e capacidade de resolver conflitos — habilidades essenciais para a cidadania e o futuro profissional.'
+    question: 'Ao planejar seu Projeto de Vida na escola, qual o principal benefício da organização do tempo e definição de metas?',
+    bnccCode: 'BNCC-CG06',
+    answerKey: 'C',
+    options: [
+      'Reduzir as horas de lazer e focar unicamente nas avaliações bimestrais.',
+      'Delegar a organização das atividades escolares para os colegas de grupo.',
+      'Equilibrar momentos de estudo, descanso e lazer de forma autônoma e produtiva.',
+      'Evitar a realização de trabalhos em equipe para não ter divergências de opinião.'
+    ]
   },
+  // Respeito
   {
     id: 'bq-bncc-03',
-    pillar: 'Educação',
-    yearGroup: '8º ano',
-    difficulty: 'Médio',
-    type: 'dissertativa',
-    question: 'Por que a prática do plágio ou cópia não autorizada de trabalhos da internet prejudica a formação autônoma e o projeto de vida do estudante?',
-    bnccCode: 'EF69LP01',
-    answerKey: 'O plágio impede o desenvolvimento da escrita autoral, do raciocínio crítico e da sintese de ideias, além de violar a ética acadêmica e o respeito aos direitos autorais.'
+    pillar: 'Respeito',
+    difficulty: 'Fácil',
+    question: 'Qual a conduta recomendada pela SaferNet e pela cartilha cidadã ao presenciar agressões e humilhações em um grupo de mensagens da turma?',
+    bnccCode: 'BNCC-CG05',
+    answerKey: 'C',
+    options: [
+      'Compartilhar os prints em outras redes sociais para expor o agressor publicamente.',
+      'Permanecer em silêncio absoluto para evitar conflitos ou retaliações com os colegas.',
+      'Não interagir com a agressão, tirar prints comprobatórios, acolher a vítima e avisar um adulto.',
+      'Entrar na discussão utilizando ofensas semelhantes para defender quem foi atacado.'
+    ]
   },
-
-  // Respeito
   {
     id: 'bq-bncc-04',
     pillar: 'Respeito',
-    yearGroup: '6º ano',
-    difficulty: 'Fácil',
-    type: 'objetiva',
-    question: 'Qual a conduta cidadã recomendada pela SaferNet e pela cartilha ao presenciar xingamentos ou exclusão em um grupo de chat da turma?',
-    bnccCode: 'BNCC-CG05',
-    answerKey: 'C) Não curtir, não compartilhar, salvar prints comprovantes, acolher quem foi agredido e buscar ajuda com adultos de confiança.',
+    difficulty: 'Médio',
+    question: 'O que diferencia fundamentalmente uma brincadeira descontraída de uma prática sistemática de bullying escolar?',
+    bnccCode: 'BNCC-CG09',
+    answerKey: 'A',
     options: [
-      'Compartilhar a conversa para expor quem xingou para toda a escola.',
-      'Apagar o aplicativo e nunca contar para ninguém.',
-      'Não curtir, não compartilhar, salvar prints comprovantes, acolher quem foi agredido e buscar ajuda com adultos de confiança.',
-      'Xingar de volta com ofensas piores.'
+      'O sentimento mútuo: se um dos envolvidos está constrangido ou triste, deixa de ser brincadeira.',
+      'O local onde a conversa acontece ou o horário em que o diálogo é realizado.',
+      'A aprovação silenciosa dos colegas que estão assistindo à situação sem intervir.',
+      'O nível de popularidade de quem inicia a interação em sala de aula.'
     ]
   },
   {
     id: 'bq-bncc-05',
     pillar: 'Respeito',
-    yearGroup: '7º ano',
-    difficulty: 'Médio',
-    type: 'situacao-problema',
-    question: 'Durante o recreio, um grupo faz comentários depreciativos sobre o cabelo de um colega, alegando ser "apenas uma brincadeira". O que caracteriza essa conduta como discriminação e não brincadeira?',
-    bnccCode: 'BNCC-CG09',
-    answerKey: 'Em uma brincadeira saudável, todos se divertem. Quando há constrangimento, humilhação ou ataque a características pessoais e étnico-raciais, trata-se de preconceito e bullying.'
-  },
-  {
-    id: 'bq-bncc-06',
-    pillar: 'Respeito',
-    yearGroup: '9º ano',
     difficulty: 'Difícil',
-    type: 'dissertativa',
-    question: 'Como a Comunicação Não-Violenta (CNV) pode ser utilizada para resolver conflitos de opinião entre estudantes sem recorrer a agressões verbais?',
-    bnccCode: 'EF89LP04',
-    answerKey: 'A CNV orienta a focar na observação dos fatos (sem julgamento), expressar os sentimentos provocados, identificar as necessidades de ambas as partes e fazer um pedido claro e negociado.'
+    question: 'Como a escuta empática e a Comunicação Não-Violenta (CNV) contribuem para a resolução de desentendimentos na escola?',
+    bnccCode: 'BNCC-CG07',
+    answerKey: 'D',
+    options: [
+      'Obrigando uma das partes a abrir mão de suas opiniões para evitar o debate.',
+      'Acelerando a punição dos envolvidos na diretoria sem a necessidade de conversa.',
+      'Impedindo que novas ideias sejam sugeridas durante a realização de trabalhos coletivos.',
+      'Permitindo expressar necessidades e sentimentos de forma honesta, sem julgamentos agressivos.'
+    ]
   },
-
   // Disciplina
   {
-    id: 'bq-bncc-07',
+    id: 'bq-bncc-06',
     pillar: 'Disciplina',
-    yearGroup: '8º ano',
     difficulty: 'Fácil',
-    type: 'objetiva',
-    question: 'Do ponto de vista pedagógico e de saúde, qual o significado verdadeiro de "autodisciplina" para o estudante?',
+    question: 'Do ponto de vista da autogestão escolar, qual a definição mais precisa para o termo "autodisciplina"?',
     bnccCode: 'BNCC-CG08',
-    answerKey: 'B) Ter capacidade de autorregulação, organizando tempo de estudo e descanso de forma consciente para alcançar seus objetivos.',
+    answerKey: 'B',
     options: [
-      'Obedecer ceticamente sem entender as razões das regras.',
-      'Ter capacidade de autorregulação, organizando tempo de estudo e descanso de forma consciente para alcançar seus objetivos.',
-      'Estudar sem parar por 8 horas seguidas na véspera da prova.',
-      'Fazer lição apenas quando sob ameaça de punições.'
+      'Obedecer de forma automática a todas as instruções externas sem questionar.',
+      'Desenvolver a capacidade de gerenciar o próprio comportamento e tempo para atingir objetivos.',
+      'Passar madrugadas inteiras estudando na véspera de provas importantes.',
+      'Realizar as tarefas escolares apenas quando há promessa de prêmios ou notas extras.'
     ]
   },
   {
-    id: 'bq-bncc-08',
+    id: 'bq-bncc-07',
     pillar: 'Disciplina',
-    yearGroup: '9º ano',
     difficulty: 'Médio',
-    type: 'situacao-problema',
-    question: 'Um estudante relata usar o celular até de madrugada jogando ou em redes sociais e no dia seguinte não consegue se concentrar na aula. Que plano de ação reflete autogestão?',
-    bnccCode: 'BNCC-CG08',
-    answerKey: 'Estabelecer limite de tela noturno (ex: desligar 1h antes de dormir), manter o celular longe da cama e criar uma rotina regular de sono de 8 horas.'
+    question: 'Qual das estratégias abaixo é recomendada para combater a procrastinação e manter o foco nos estudos diários?',
+    bnccCode: 'BNCC-CG01',
+    answerKey: 'A',
+    options: [
+      'Dividir as tarefas complexas em etapas menores e programar intervalos curtos de descanso.',
+      'Estudar na cama com o celular ao lado recebendo notificações das redes sociais.',
+      'Evitar a realização de pausas para concluir todo o conteúdo de uma única vez.',
+      'Estudar apenas nos minutos que antecedem a entrada do professor na sala de aula.'
+    ]
   },
-
   // Cuidado
+  {
+    id: 'bq-bncc-08',
+    pillar: 'Cuidado',
+    difficulty: 'Fácil',
+    question: 'Por que zelar pela conservação física do prédio, das carteiras e dos banheiros da escola é considerado um dever cidadão?',
+    bnccCode: 'BNCC-CG10',
+    answerKey: 'D',
+    options: [
+      'Porque a prefeitura e a direção escolar cobram taxas adicionais por danos causados.',
+      'Porque os alunos que danificarem os objetos são proibidos de frequentar a biblioteca.',
+      'Porque o desgaste natural deve ser reparado exclusivamente pelos funcionários da limpeza.',
+      'Porque a escola pública é um patrimônio coletivo construído e mantido pelos impostos de toda a sociedade.'
+    ]
+  },
   {
     id: 'bq-bncc-09',
     pillar: 'Cuidado',
-    yearGroup: '6º ano',
-    difficulty: 'Fácil',
-    type: 'objetiva',
-    question: 'A quem pertence o patrimônio físico da escola pública (carteiras, computadores, livros e banheiros)?',
-    bnccCode: 'BNCC-CG10',
-    answerKey: 'A) É um bem público coletivo sustentado por impostos da sociedade, cujo zelo e preservação pertencem a todos os estudantes e comunidade.',
+    difficulty: 'Médio',
+    question: 'Qual das seguintes práticas reflete a sustentabilidade ambiental no cotidiano da comunidade escolar?',
+    bnccCode: 'BNCC-CG07',
+    answerKey: 'A',
     options: [
-      'É um bem público coletivo sustentado por impostos da sociedade, cujo zelo e preservação pertencem a todos os estudantes e comunidade.',
-      'Pertence unicamente ao diretor da escola.',
-      'Por ser público, ninguém precisa cuidar.',
-      'É de responsabilidade exclusiva dos funcionários de limpeza.'
+      'Separar resíduos recicláveis, evitar desperdício de água nos bebedouros e apagar as luzes ao sair.',
+      'Deixar torneiras parcialmente abertas para facilitar a lavagem das mãos dos próximos alunos.',
+      'Descartar embalagens plásticas e papéis nas salas de aula para posterior recolhimento.',
+      'Utilizar copos descartáveis em vez de garrafas reutilizáveis para economizar água da pia.'
     ]
   },
   {
     id: 'bq-bncc-10',
     pillar: 'Cuidado',
-    yearGroup: '7º ano',
-    difficulty: 'Médio',
-    type: 'situacao-problema',
-    question: 'Ao notar que torneiras do banheiro estão vazando água continuamente, qual a atitude do estudante comprometido com a sustentabilidade?',
-    bnccCode: 'BNCC-CG07',
-    answerKey: 'Comunicar imediatamente a equipe de manutenção/direção e conscientizar os colegas sobre o uso racional da água potável.'
-  },
-
-  // Geral
-  {
-    id: 'bq-bncc-11',
-    pillar: 'Geral',
-    yearGroup: '9º ano',
     difficulty: 'Difícil',
-    type: 'dissertativa',
-    question: 'Explique como o Estatuto da Criança e do Adolescente (ECA) articula os direitos fundamentais do jovem com seus deveres para com a sociedade e a escola.',
-    bnccCode: 'BNCC-CG10',
-    answerKey: 'O ECA estabelece que a criança e o adolescente são sujeitos de direitos (como educação de qualidade e proteção), e que o exercício pleno da cidadania requer o respeito aos direitos alheios e o cumprimento das normas democráticas.'
+    question: 'Como a atitude de respeito e colaboração com os funcionários da escola impacta a convivência coletiva?',
+    bnccCode: 'BNCC-CG09',
+    answerKey: 'C',
+    options: [
+      'Garante vantagens acadêmicas e privilégios na entrega de tarefas e trabalhos.',
+      'Diminui as responsabilidades disciplinares do estudante perante as normas da escola.',
+      'Fortalece um ambiente de respeito mútuo, segurança emocional e pertencimento comunitário.',
+      'Isenta o estudante de participar das atividades de preservação ambiental da escola.'
+    ]
   }
 ];
 
-export const BANCO_QUESTOES: QuestaoBanco[] = BANCO_QUESTOES_BNCC.map((q, idx) => ({
+export const BANCO_QUESTOES = BANCO_QUESTOES_BNCC.map((q, idx) => ({
   id: q.id,
   num: idx + 1,
-  tema: q.pillar === 'Educação' ? 'Educação e Escola'
-      : q.pillar === 'Respeito' ? 'Respeito e Convivência'
-      : q.pillar === 'Disciplina' ? 'Disciplina e Autonomia'
-      : q.pillar === 'Cuidado' ? 'Meio Ambiente e Patrimônio'
-      : 'Cultura de Paz e Cidadania',
-  tipo: q.type === 'objetiva' ? 'Objetiva'
-      : q.type === 'situacao-problema' ? 'Situação-problema'
-      : 'Reflexão',
+  tema: q.pillar,
+  tipo: 'Objetiva',
   enunciado: q.question,
   opcoes: q.options,
   respostaCorreta: q.answerKey,
   comentário: `Questão alinhada ao código ${q.bnccCode} da BNCC.`,
   competenciaBNCC: q.bnccCode,
-  faixaEtaria: q.yearGroup
+  faixaEtaria: '11-15 anos'
 }));
 
-export const TEMAS_BANCO: QuestaoBanco['tema'][] = [
-  'Educação e Escola',
-  'Respeito e Convivência',
-  'Disciplina e Autonomia',
-  'Meio Ambiente e Patrimônio',
-  'Direitos, Deveres e BNCC',
-  'Cultura de Paz e Cidadania'
-];
