@@ -7,7 +7,6 @@ import {
   ExternalLink,
   ChevronDown,
   ChevronUp,
-  ArrowLeft,
   CheckCircle2,
   XCircle,
   MessageSquare
@@ -16,6 +15,7 @@ import { RESPEITO_PILLAR } from '../../data/cartilhaData';
 import { QuizComponent } from '../common/QuizComponent';
 import { VideoEmbedModal } from '../common/VideoEmbedModal';
 import { SpeechButton } from '../common/SpeechButton';
+import { PillarNavigation } from '../common/PillarNavigation';
 
 interface RespeitoViewProps {
   onNavigate: (view: string) => void;
@@ -40,16 +40,8 @@ export const RespeitoView: React.FC<RespeitoViewProps> = ({
 
   return (
     <div className="space-y-12 animate-fadeIn">
-      {/* Back button */}
-      <div>
-        <button
-          onClick={() => onNavigate('home')}
-          className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-purple-600 dark:text-purple-400 hover:underline"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          <span>Voltar para o Início</span>
-        </button>
-      </div>
+      {/* Navegação entre Pilares (topo) */}
+      <PillarNavigation currentPillarId="respeito" onNavigate={onNavigate} position="top" />
 
       {/* Hero Header do Pilar Respeito (Bold Typography Theme) */}
       <section
@@ -368,6 +360,9 @@ export const RespeitoView: React.FC<RespeitoViewProps> = ({
           ))}
         </div>
       </section>
+
+      {/* Navegação entre Pilares (rodapé) */}
+      <PillarNavigation currentPillarId="respeito" onNavigate={onNavigate} position="bottom" />
     </div>
   );
 };

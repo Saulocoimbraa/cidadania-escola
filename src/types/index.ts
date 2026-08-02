@@ -99,6 +99,8 @@ export interface DinamicaGrupo {
   reflectionQuestions: string[];
 }
 
+export type BadgeTier = 'bronze' | 'prata' | 'ouro';
+
 export interface Badge {
   id: string;
   title: string;
@@ -121,6 +123,8 @@ export interface UserProgress {
   savedReflections: { id: string; prompt: string; userNote: string; date: string }[];
   favoriteQuestions: string[];
   unlockedBadges: string[];
+  /** Mapa de pilarId -> tier conquistado ('bronze' | 'prata' | 'ouro') */
+  badgeTiers: Record<string, BadgeTier>;
   totalPoints: number;
   theme: 'light' | 'dark' | 'pastel';
 }

@@ -1,64 +1,62 @@
 import { Badge } from '../types';
 
+/**
+ * 5 brasões no total:
+ * - 4 brasões de pilar (educacao, respeito, disciplina, cuidado)
+ *   → tier bronze (≥60%), prata (≥80%), ouro (≥90%) conforme percentual do quiz
+ * - 1 brasão especial "Líder da Cidadania" ao conquistar os 4 pilares
+ *
+ * Critério único e claro: fazer o quiz de cada pilar e tirar a nota.
+ */
 export const ALL_BADGES: Badge[] = [
   {
     id: 'badge-educacao',
-    title: 'Campeão da Educação',
-    description: 'Completou o Quiz de Educação e explorou como a escola transforma o projeto de vida!',
+    title: 'Brasão da Educação',
+    description: 'Completou o Quiz de Educação e demonstrou compromisso com o conhecimento e o protagonismo juvenil!',
     iconName: 'GraduationCap',
     color: '#1976D2',
     category: 'educacao',
     unlocked: false,
-    progressRequired: 'Concluir o quiz da página Educação com pelo menos 60% de acertos.'
+    progressRequired: 'Faça o Quiz de Educação e acerte ≥60% das questões.'
   },
   {
     id: 'badge-respeito',
-    title: 'Aluno Respeitoso',
-    description: 'Participou das histórias de dilema ético e demonstrou empatia no combate ao bullying!',
+    title: 'Brasão do Respeito',
+    description: 'Completou o Quiz de Respeito e demonstrou empatia no combate ao bullying e na cultura de paz!',
     iconName: 'HeartHandshake',
     color: '#7E57C2',
     category: 'respeito',
     unlocked: false,
-    progressRequired: 'Concluir o quiz da página Respeito com pelo menos 60% de acertos.'
+    progressRequired: 'Faça o Quiz de Respeito e acerte ≥60% das questões.'
   },
   {
     id: 'badge-disciplina',
-    title: 'Mestre da Autonomia',
-    description: 'Utilizou as ferramentas de organização diária e completou o desafio de Disciplina!',
+    title: 'Brasão da Disciplina',
+    description: 'Completou o Quiz de Disciplina e demonstrou autonomia, organização e constância nos seus objetivos!',
     iconName: 'Compass',
     color: '#FB8C00',
     category: 'disciplina',
     unlocked: false,
-    progressRequired: 'Concluir o quiz da página Disciplina e usar a Lista de Tarefas.'
+    progressRequired: 'Faça o Quiz de Disciplina e acerte ≥60% das questões.'
   },
   {
     id: 'badge-cuidado',
-    title: 'Guardião da Escola',
-    description: 'Cumpriu missões semanais de cuidado com o patrimônio, sustentabilidade e meio ambiente!',
+    title: 'Brasão do Cuidado',
+    description: 'Completou o Quiz de Cuidado e demonstrou compromisso com o patrimônio público e o meio ambiente!',
     iconName: 'Sprout',
     color: '#43A047',
     category: 'cuidado',
     unlocked: false,
-    progressRequired: 'Concluir as Missões da Semana da página Cuidado com a Escola.'
-  },
-  {
-    id: 'badge-solidario',
-    title: 'Amigo Solidário',
-    description: 'Refletiu no espaço "Pense Sobre Isso" sobre como ajudar seus colegas com gentileza!',
-    iconName: 'Users',
-    color: '#E91E63',
-    category: 'geral',
-    unlocked: false,
-    progressRequired: 'Registrar ao menos 1 reflexão no diário cidadão da plataforma.'
+    progressRequired: 'Faça o Quiz de Cuidado e acerte ≥60% das questões.'
   },
   {
     id: 'badge-lider',
     title: 'Líder da Cidadania',
-    description: 'Concluiu todas as atividades dos 4 pilares e conquistou seu Diploma Jovem Cidadão!',
+    description: 'Conquistou os 4 brasões dos pilares! Você é um verdadeiro Estudante Cidadão!',
     iconName: 'Crown',
     color: '#FBC02D',
     category: 'geral',
     unlocked: false,
-    progressRequired: 'Conquistar as quatro medalhas dos pilares da cartilha!'
+    progressRequired: 'Conquiste os 4 brasões de pilar (Educação, Respeito, Disciplina e Cuidado).'
   }
 ];

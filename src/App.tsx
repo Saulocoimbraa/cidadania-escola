@@ -141,6 +141,8 @@ export default function App() {
             earnedBadges={earnedBadges}
             totalPoints={totalPoints}
             progressPercentage={progressPercentage}
+            badgeTiers={progress.badgeTiers}
+            completedQuizzes={progress.completedQuizzes}
           />
         );
       case 'sobre':

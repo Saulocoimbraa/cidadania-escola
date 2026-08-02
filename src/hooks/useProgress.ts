@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
-import { UserProgress } from '../types';
+import { UserProgress, BadgeTier } from '../types';
 import { ALL_BADGES } from '../data/badgesData';
 import confetti from 'canvas-confetti';
 
-const STORAGE_KEY = 'cidadania_na_escola_progress_v1';
+const STORAGE_KEY = 'cidadania_na_escola_progress_v2';
 
 const defaultProgress: UserProgress = {
   studentName: 'Jovem Cidadão',
@@ -15,17 +15,31 @@ const defaultProgress: UserProgress = {
   savedReflections: [],
   favoriteQuestions: [],
   unlockedBadges: [],
+  badgeTiers: {},
   totalPoints: 0,
   theme: 'light'
 };
 
+/** Calcula o tier com base no percentual (0-1) */
+function calcTier(pct: number): BadgeTier | null {
+  if (pct >= 0.9) return 'ouro';
+  if (pct >= 0.8) return 'prata';
+  if (pct >= 0.6) return 'bronze';
+  return null;
+}
+
 export function useProgress() {
   const [progress, setProgress] = useState<UserProgress>(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
+      // Tentar chave nova
+      let saved = localStorage.getItem(STORAGE_KEY);
+      // Migração: se não tiver chave nova, tenta a antiga
+      if (!saved) {
+        saved = localStorage.getItem('cidadania_na_escola_progress_v1');
+      }
       if (saved) {
         const parsed = JSON.parse(saved);
-        return { ...defaultProgress, ...parsed };
+        return { ...defaultProgress, ...parsed, badgeTiers: parsed.badgeTiers ?? {} };
       }
     } catch (e) {
       console.error('Erro ao ler progresso do LocalStorage', e);
@@ -35,60 +49,79 @@ export function useProgress() {
 
   const [newlyUnlockedBadge, setNewlyUnlockedBadge] = useState<string | null>(null);
 
-  // Helper to save to local storage and check badge unlocking
+  function triggerCelebration() {
+    try {
+      confetti({
+        particleCount: 90,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#1976D2', '#7E57C2', '#FB8C00', '#43A047', '#FBC02D']
+      });
+    } catch (e) {
+      // safe fallback
+    }
+  }
+
   const saveProgress = useCallback((newProgress: UserProgress) => {
+    // Usar a lista anterior (não a nova) para checar se já foi desbloqueado
     const prevUnlocked = new Set(newProgress.unlockedBadges || []);
     const updatedBadges = [...(newProgress.unlockedBadges || [])];
+    const updatedTiers: Record<string, BadgeTier> = { ...(newProgress.badgeTiers || {}) };
 
-    // Check conditions for badges
-    // 1. Campeão da Educação
-    const eduQuiz = newProgress.completedQuizzes['educacao'];
-    if (eduQuiz && eduQuiz.score / eduQuiz.total >= 0.6 && !prevUnlocked.has('badge-educacao')) {
-      updatedBadges.push('badge-educacao');
-      setNewlyUnlockedBadge('badge-educacao');
-      triggerCelebration();
+    let latestBadgeUnlocked: string | null = null;
+
+    // Pilar → badge-id mapeamento
+    const pillarBadgeMap: { pilar: string; badgeId: string }[] = [
+      { pilar: 'educacao',  badgeId: 'badge-educacao'  },
+      { pilar: 'respeito',  badgeId: 'badge-respeito'  },
+      { pilar: 'disciplina',badgeId: 'badge-disciplina' },
+      { pilar: 'cuidado',   badgeId: 'badge-cuidado'   },
+    ];
+
+    for (const { pilar, badgeId } of pillarBadgeMap) {
+      const quiz = newProgress.completedQuizzes[pilar];
+      if (!quiz) continue;
+      const pct = quiz.score / quiz.total;
+      const tier = calcTier(pct);
+      if (!tier) continue;
+
+      // Tiers em ordem crescente
+      const tierOrder: BadgeTier[] = ['bronze', 'prata', 'ouro'];
+      const currentTier = updatedTiers[badgeId];
+      const currentTierIndex = currentTier ? tierOrder.indexOf(currentTier) : -1;
+      const newTierIndex = tierOrder.indexOf(tier);
+
+      // Atualizar tier se subiu de nível
+      if (newTierIndex > currentTierIndex) {
+        updatedTiers[badgeId] = tier;
+      }
+
+      // Desbloquear brasão se ainda não está na lista
+      if (!prevUnlocked.has(badgeId)) {
+        updatedBadges.push(badgeId);
+        latestBadgeUnlocked = badgeId;
+        triggerCelebration();
+      }
     }
-    // 2. Aluno Respeitoso
-    const respQuiz = newProgress.completedQuizzes['respeito'];
-    if (respQuiz && respQuiz.score / respQuiz.total >= 0.6 && !prevUnlocked.has('badge-respeito')) {
-      updatedBadges.push('badge-respeito');
-      setNewlyUnlockedBadge('badge-respeito');
-      triggerCelebration();
-    }
-    // 3. Mestre da Autonomia (Disciplina)
-    const discQuiz = newProgress.completedQuizzes['disciplina'];
-    if (discQuiz && discQuiz.score / discQuiz.total >= 0.6 && !prevUnlocked.has('badge-disciplina')) {
-      updatedBadges.push('badge-disciplina');
-      setNewlyUnlockedBadge('badge-disciplina');
-      triggerCelebration();
-    }
-    // 4. Guardião da Escola (Cuidado / Missões)
-    const cuidQuiz = newProgress.completedQuizzes['cuidado'];
-    const missionsCount = (newProgress.completedMissions || []).length;
-    if ((missionsCount >= 3 || (cuidQuiz && cuidQuiz.score / cuidQuiz.total >= 0.6)) && !prevUnlocked.has('badge-cuidado')) {
-      updatedBadges.push('badge-cuidado');
-      setNewlyUnlockedBadge('badge-cuidado');
-      triggerCelebration();
-    }
-    // 5. Amigo Solidário (Reflexões)
-    if ((newProgress.savedReflections || []).length >= 1 && !prevUnlocked.has('badge-solidario')) {
-      updatedBadges.push('badge-solidario');
-      setNewlyUnlockedBadge('badge-solidario');
-      triggerCelebration();
-    }
-    // 6. Líder da Cidadania (Todos os 4 pilares)
-    const has4 = ['badge-educacao', 'badge-respeito', 'badge-disciplina', 'badge-cuidado'].every(b =>
-      updatedBadges.includes(b)
-    );
+
+    // Badge Líder da Cidadania: conquistar os 4 pilares
+    const pilarBadgeIds = ['badge-educacao', 'badge-respeito', 'badge-disciplina', 'badge-cuidado'];
+    const has4 = pilarBadgeIds.every(b => updatedBadges.includes(b));
     if (has4 && !updatedBadges.includes('badge-lider')) {
       updatedBadges.push('badge-lider');
-      setNewlyUnlockedBadge('badge-lider');
+      latestBadgeUnlocked = 'badge-lider';
       triggerCelebration();
+    }
+
+    // Só mostrar o modal para o badge mais recente desta operação
+    if (latestBadgeUnlocked) {
+      setNewlyUnlockedBadge(latestBadgeUnlocked);
     }
 
     const toSave: UserProgress = {
       ...newProgress,
-      unlockedBadges: Array.from(new Set(updatedBadges))
+      unlockedBadges: Array.from(new Set(updatedBadges)),
+      badgeTiers: updatedTiers
     };
 
     setProgress(toSave);
@@ -98,19 +131,6 @@ export function useProgress() {
       console.error('Erro ao salvar no LocalStorage', e);
     }
   }, []);
-
-  function triggerCelebration() {
-    try {
-      confetti({
-        particleCount: 80,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#1976D2', '#7E57C2', '#FB8C00', '#43A047', '#FBC02D']
-      });
-    } catch (e) {
-      // safe fallback
-    }
-  }
 
   const updateStudentInfo = useCallback((name: string, school: string, gradeClass: string) => {
     saveProgress({
@@ -174,20 +194,14 @@ export function useProgress() {
     localStorage.removeItem(STORAGE_KEY);
   }, []);
 
-  // Calculate overall completion percentage (out of 100%)
+  // Progresso geral: 4 quizzes completados = 100%
   const calculateOverallPercentage = useCallback(() => {
-    let completedSteps = 0;
-    const totalSteps = 10;
-    // 4 pillar quizzes
-    if (progress.completedQuizzes['educacao']) completedSteps += 2;
-    if (progress.completedQuizzes['respeito']) completedSteps += 2;
-    if (progress.completedQuizzes['disciplina']) completedSteps += 2;
-    if (progress.completedQuizzes['cuidado']) completedSteps += 2;
-    // missions or reflections
-    if ((progress.completedMissions || []).length >= 3) completedSteps += 1;
-    if ((progress.savedReflections || []).length >= 1) completedSteps += 1;
-
-    return Math.min(100, Math.round((completedSteps / totalSteps) * 100));
+    const pilares = ['educacao', 'respeito', 'disciplina', 'cuidado'];
+    const done = pilares.filter(p => {
+      const q = progress.completedQuizzes[p];
+      return q && q.score / q.total >= 0.6;
+    }).length;
+    return Math.round((done / pilares.length) * 100);
   }, [progress]);
 
   const closeBadgeModal = () => setNewlyUnlockedBadge(null);
@@ -211,6 +225,7 @@ export function useProgress() {
     closeBadgeModal,
     getBadgeDetails,
     earnedBadges,
+    badgeTiers: progress.badgeTiers || {},
     totalPoints: progress.totalPoints || 0,
     progressPercentage: calculateOverallPercentage(),
     saveReflectionNote,

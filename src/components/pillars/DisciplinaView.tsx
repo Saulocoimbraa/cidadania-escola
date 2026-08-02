@@ -12,13 +12,13 @@ import {
   Sparkles,
   ChevronDown,
   ChevronUp,
-  ArrowLeft,
   Quote
 } from 'lucide-react';
 import { DISCIPLINA_PILLAR } from '../../data/cartilhaData';
 import { QuizComponent } from '../common/QuizComponent';
 import { VideoEmbedModal } from '../common/VideoEmbedModal';
 import { SpeechButton } from '../common/SpeechButton';
+import { PillarNavigation } from '../common/PillarNavigation';
 
 interface DisciplinaViewProps {
   onNavigate: (view: string) => void;
@@ -90,16 +90,8 @@ export const DisciplinaView: React.FC<DisciplinaViewProps> = ({
 
   return (
     <div className="space-y-12 animate-fadeIn">
-      {/* Back button */}
-      <div>
-        <button
-          onClick={() => onNavigate('home')}
-          className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-orange-600 dark:text-orange-400 hover:underline"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          <span>Voltar para o Início</span>
-        </button>
-      </div>
+      {/* Navegação entre Pilares (topo) */}
+      <PillarNavigation currentPillarId="disciplina" onNavigate={onNavigate} position="top" />
 
       {/* Hero Header do Pilar Disciplina (Bold Typography Theme) */}
       <section
@@ -526,6 +518,9 @@ export const DisciplinaView: React.FC<DisciplinaViewProps> = ({
           onComplete={onCompleteQuiz}
         />
       </section>
+
+      {/* Navegação entre Pilares (rodapé) */}
+      <PillarNavigation currentPillarId="disciplina" onNavigate={onNavigate} position="bottom" />
     </div>
   );
 };

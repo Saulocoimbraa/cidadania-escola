@@ -10,13 +10,13 @@ import {
   Sparkles,
   ChevronDown,
   ChevronUp,
-  ArrowLeft,
   Quote
 } from 'lucide-react';
 import { CUIDADO_PILLAR } from '../../data/cartilhaData';
 import { QuizComponent } from '../common/QuizComponent';
 import { VideoEmbedModal } from '../common/VideoEmbedModal';
 import { SpeechButton } from '../common/SpeechButton';
+import { PillarNavigation } from '../common/PillarNavigation';
 
 interface CuidadoViewProps {
   onNavigate: (view: string) => void;
@@ -40,16 +40,8 @@ export const CuidadoView: React.FC<CuidadoViewProps> = ({
 
   return (
     <div className="space-y-12 animate-fadeIn">
-      {/* Back button */}
-      <div>
-        <button
-          onClick={() => onNavigate('home')}
-          className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-green-600 dark:text-green-400 hover:underline"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          <span>Voltar para o Início</span>
-        </button>
-      </div>
+      {/* Navegação entre Pilares (topo) */}
+      <PillarNavigation currentPillarId="cuidado" onNavigate={onNavigate} position="top" />
 
       {/* Hero Header do Pilar Cuidado (Bold Typography Theme) */}
       <section
@@ -290,6 +282,9 @@ export const CuidadoView: React.FC<CuidadoViewProps> = ({
           onComplete={onCompleteQuiz}
         />
       </section>
+
+      {/* Navegação entre Pilares (rodapé — próximo é Conquistas) */}
+      <PillarNavigation currentPillarId="cuidado" onNavigate={onNavigate} position="bottom" />
     </div>
   );
 };

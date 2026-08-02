@@ -9,13 +9,13 @@ import {
   Award,
   ChevronDown,
   ChevronUp,
-  ArrowLeft,
   Quote
 } from 'lucide-react';
 import { EDUCAO_PILLAR } from '../../data/cartilhaData';
 import { QuizComponent } from '../common/QuizComponent';
 import { VideoEmbedModal } from '../common/VideoEmbedModal';
 import { SpeechButton } from '../common/SpeechButton';
+import { PillarNavigation } from '../common/PillarNavigation';
 
 interface EducacaoViewProps {
   onNavigate: (view: string) => void;
@@ -35,16 +35,8 @@ export const EducacaoView: React.FC<EducacaoViewProps> = ({
 
   return (
     <div className="space-y-12 animate-fadeIn">
-      {/* Back button */}
-      <div>
-        <button
-          onClick={() => onNavigate('home')}
-          className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-blue-600 dark:text-blue-400 hover:underline"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          <span>Voltar para o Início</span>
-        </button>
-      </div>
+      {/* Navegação entre Pilares (topo) */}
+      <PillarNavigation currentPillarId="educacao" onNavigate={onNavigate} position="top" />
 
       {/* Hero Header do Pilar Educação (Bold Typography Theme) */}
       <section
@@ -259,6 +251,9 @@ export const EducacaoView: React.FC<EducacaoViewProps> = ({
           ))}
         </div>
       </section>
+
+      {/* Navegação entre Pilares (rodapé) */}
+      <PillarNavigation currentPillarId="educacao" onNavigate={onNavigate} position="bottom" />
     </div>
   );
 };
