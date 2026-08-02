@@ -18,6 +18,7 @@ import {
 import { ALL_PILLARS } from '../../data/cartilhaData';
 import { SpeechButton } from '../common/SpeechButton';
 import bgMain from '../../img/bg-main.jpg';
+import imgEducacao from '../../img/edu.png';
 
 interface HomeViewProps {
   onNavigate: (view: string) => void;
@@ -37,6 +38,16 @@ export const HomeView: React.FC<HomeViewProps> = ({
     HeartHandshake,
     Compass,
     Sprout
+  };
+
+  // Imagem de fundo dos cartões dos pilares
+  // Para ativar: importe o PNG e substitua undefined pelo caminho, ex: `url(${imgEducacao})`
+  // import imgEducacao from '../../img/pillar-educacao.png'; (adicionar no topo do arquivo)
+  const pillarBgImage: { [key: string]: string | undefined } = {
+    educacao: `url(${imgEducacao})`,
+    respeito: undefined, // ex: `url(${imgRespeito})`
+    disciplina: undefined, // ex: `url(${imgDisciplina})`
+    cuidado: undefined, // ex: `url(${imgCuidado})`
   };
 
   return (
@@ -172,28 +183,18 @@ export const HomeView: React.FC<HomeViewProps> = ({
             const bgClass = isEducacao
               ? 'bg-[#E8F5E9] dark:bg-slate-900/90 border-[#43A047]'
               : isRespeito
-              ? 'bg-[#FFF3E0] dark:bg-slate-900/90 border-[#FB8C00]'
-              : isDisciplina
-              ? 'bg-[#F3E5F5] dark:bg-slate-900/90 border-[#7E57C2]'
-              : 'bg-[#E3F2FD] dark:bg-slate-900/90 border-[#1976D2]';
+                ? 'bg-[#FFF3E0] dark:bg-slate-900/90 border-[#FB8C00]'
+                : isDisciplina
+                  ? 'bg-[#F3E5F5] dark:bg-slate-900/90 border-[#7E57C2]'
+                  : 'bg-[#E3F2FD] dark:bg-slate-900/90 border-[#1976D2]';
 
             const titleColorClass = isEducacao
               ? 'text-[#2E7D32] dark:text-green-400'
               : isRespeito
-              ? 'text-[#EF6C00] dark:text-orange-400'
-              : isDisciplina
-              ? 'text-[#5E35B1] dark:text-purple-400'
-              : 'text-[#1565C0] dark:text-blue-400';
-
-            // Imagem de fundo dos cartões dos pilares
-            // Para ativar: importe o PNG e substitua undefined pelo caminho, ex: `url(${imgEducacao})`
-            // import imgEducacao from '../../img/pillar-educacao.png'; (adicionar no topo do arquivo)
-            const pillarBgImage: Record<string, string | undefined> = {
-              educacao: undefined, // ex: `url(${imgEducacao})`
-              respeito: undefined, // ex: `url(${imgRespeito})`
-              disciplina: undefined, // ex: `url(${imgDisciplina})`
-              cuidado: undefined, // ex: `url(${imgCuidado})`
-            };
+                ? 'text-[#EF6C00] dark:text-orange-400'
+                : isDisciplina
+                  ? 'text-[#5E35B1] dark:text-purple-400'
+                  : 'text-[#1565C0] dark:text-blue-400';
 
             return (
               <div
