@@ -127,40 +127,44 @@ export const ConquistasView: React.FC<ConquistasViewProps> = ({
         doc.setFontSize(24);
         doc.setTextColor(25, 118, 210); // Azul chamativo (#1976D2)
         const nameText = studentName.trim().toUpperCase();
-        // Em certificado.png, a linha do nome está posicionada a Y = 89mm
-        doc.text(nameText, W / 2, 86, { align: 'center' });
+        // Subindo o nome para Y = 82mm para não encavalar com a linha preta
+        doc.text(nameText, W / 2, 82, { align: 'center' });
 
-        // 3. Escrever os 4 Pilares de Conquistas (2 colunas, cores originais do app)
-        // Coluna 1
+        // 3. Escrever os 4 Pilares de Conquistas (Aproximadas horizontalmente e centralizadas)
+        // Largura máxima de ~45% da página (X de 86 a 158)
         doc.setFont('helvetica', 'bold');
-        doc.setFontSize(12);
+        doc.setFontSize(11);
         
-        // Educação
+        // Educação (Coluna 1)
         doc.setTextColor(25, 118, 210); // #1976D2
-        doc.text('• EDUCAÇÃO & PROTAGONISMO', 45, 125);
+        doc.text('• EDUCAÇÃO & PROTAGONISMO', 86, 124);
 
-        // Disciplina
+        // Disciplina (Coluna 1)
         doc.setTextColor(251, 140, 0); // #FB8C00
-        doc.text('• DISCIPLINA & AUTONOMIA', 45, 135);
+        doc.text('• DISCIPLINA & AUTONOMIA', 86, 133);
 
-        // Coluna 2
-        // Respeito
+        // Respeito (Coluna 2)
         doc.setTextColor(126, 87, 194); // #7E57C2
-        doc.text('• RESPEITO & CULTURA DE PAZ', 150, 125);
+        doc.text('• RESPEITO & CULTURA DE PAZ', 158, 124);
 
-        // Cuidado
+        // Cuidado (Coluna 2)
         doc.setTextColor(67, 160, 71); // #43A047
-        doc.text('• CUIDADO & PATRIMÔNIO PÚBLICO', 150, 135);
+        doc.text('• CUIDADO & PATRIMÔNIO PÚBLICO', 158, 133);
 
-        // 4. Linha de Data e Progresso
+        // 4. Linhas de Data e Progresso (Quebradas em 2 linhas centralizadas)
         const today = new Date().toLocaleDateString('pt-BR');
         doc.setFont('helvetica', 'bolditalic');
         doc.setFontSize(11);
         doc.setTextColor(100, 114, 130);
+        
+        // Linha 1: Data de emissão
+        doc.text(`Data de emissão: ${today}`, W / 2, 147, { align: 'center' });
+        
+        // Linha 2: Pontos e medalhas
         doc.text(
-          `Data de emissão: ${today}  •  Pontuação Acumulada: ${totalPoints} pts  •  Medalhas Conquistadas: ${earnedBadges.length} de ${ALL_BADGES.length}`,
+          `Pontuação Acumulada: ${totalPoints} pts  •  Medalhas Conquistadas: ${earnedBadges.length} de ${ALL_BADGES.length}`,
           W / 2,
-          152,
+          153,
           { align: 'center' }
         );
 
