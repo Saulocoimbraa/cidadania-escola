@@ -16,14 +16,14 @@ export const BIBLIOTECA_ITEMS: BibliotecaItem[] = [
   },
   {
     id: 'bib-2',
-    title: 'Protagonismo Juvenil: Como Fazer a Diferença na Escola',
+    title: 'Clube de Protagonismo: O Guia do Estudante',
     category: 'Educação',
-    type: 'Artigo',
-    description: 'Guia prático da Nova Escola sobre grêmios estudantis, assembleias de classe e como dar voz aos estudantes no Ensino Fundamental - Anos Finais.',
-    ageGroup: '13-15 anos',
-    readingTime: '8 min de leitura',
-    url: 'https://novaescola.org.br/busca?q=protagonismo+juvenil+gremio+estudantil',
-    authorOrSource: 'Portal Nova Escola / MEC',
+    type: 'Cartilha',
+    description: 'Clube de Protagonismo é um espaço de aprendizagem autônoma organizado pelos próprios alunos dentro da escola, focado no desenvolvimento de habilidades, na socialização e na escolha livre de temas de interesse juvenil, contando com a supervisão de um professor orientador.',
+    ageGroup: '11-15 anos',
+    readingTime: '10 min de leitura',
+    url: 'https://portal.educacao.pe.gov.br/wp-content/uploads/2025/02/CLUBE-DE-PROTAGONISMO-ESTUDANTES.pdf',
+    authorOrSource: 'Sec. de Educação de Pernambuco / SEDE',
     color: '#1976D2'
   },
   {

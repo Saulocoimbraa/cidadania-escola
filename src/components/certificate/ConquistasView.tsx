@@ -103,126 +103,86 @@ export const ConquistasView: React.FC<ConquistasViewProps> = ({
   };
 
   // ─── Geração do PDF baseado no template ───────────────────────────────────
-  const handleGeneratePDF = async () => {
+  const handleGeneratePDF = () => {
     if (!studentName.trim()) {
       alert('Por favor, digite seu nome completo para emitir o certificado!');
       return;
     }
     setGeneratingPdf(true);
-    try {
-      const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
-      const W = doc.internal.pageSize.getWidth();   // 297mm
-      const H = doc.internal.pageSize.getHeight();  // 210mm
 
-      // ── Fundo branco ────────────────────────────────────────────────────
-      doc.setFillColor(255, 255, 255);
-      doc.rect(0, 0, W, H, 'F');
+    const img = new Image();
+    img.src = certificadoTemplate;
 
-      // ── Borda dupla dourada (como no template) ───────────────────────────
-      doc.setDrawColor(218, 165, 32); // ouro
-      doc.setLineWidth(3);
-      doc.rect(6, 6, W - 12, H - 12);
-      doc.setLineWidth(1);
-      doc.rect(10, 10, W - 20, H - 20);
+    img.onload = () => {
+      try {
+        const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
+        const W = doc.internal.pageSize.getWidth();   // 297mm
+        const H = doc.internal.pageSize.getHeight();  // 210mm
 
-      // ── Cantos decorativos (círculos dourados) ───────────────────────────
-      const corners = [[10, 10], [W - 10, 10], [10, H - 10], [W - 10, H - 10]] as [number, number][];
-      doc.setFillColor(218, 165, 32);
-      corners.forEach(([x, y]) => doc.circle(x, y, 2, 'F'));
+        // 1. Desenhar o template de fundo
+        doc.addImage(img, 'PNG', 0, 0, W, H);
 
-      // ── Badge roxo "CERTIFICADO" no topo ─────────────────────────────────
-      const badgeW = 60, badgeH = 10, badgeX = (W - badgeW) / 2, badgeY = 16;
-      doc.setFillColor(102, 51, 153);
-      doc.roundedRect(badgeX, badgeY, badgeW, badgeH, 3, 3, 'F');
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(11);
-      doc.setTextColor(255, 255, 255);
-      doc.text('CERTIFICADO', W / 2, badgeY + 7, { align: 'center' });
-
-      // ── Título verde "ESTUDANTE CIDADÃO" ─────────────────────────────────
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(26);
-      doc.setTextColor(34, 139, 34);  // verde
-      doc.text('ESTUDANTE CIDADÃO', W / 2, 38, { align: 'center' });
-
-      // ── Texto "Este certificado é concedido a" ───────────────────────────
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(12);
-      doc.setTextColor(30, 30, 30);
-      doc.text('Este certificado é concedido a', W / 2, 52, { align: 'center' });
-
-      // ── Nome do estudante (grande, sublinhado) ────────────────────────────
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(20);
-      doc.setTextColor(20, 20, 20);
-      const nameText = studentName.trim();
-      doc.text(nameText, W / 2, 70, { align: 'center' });
-      // Linha abaixo do nome
-      const nameWidth = Math.min(doc.getTextWidth(nameText) + 20, W - 60);
-      doc.setDrawColor(30, 30, 30);
-      doc.setLineWidth(0.5);
-      doc.line((W - nameWidth) / 2, 73, (W + nameWidth) / 2, 73);
-
-      // ── Texto "por seu compromisso..." ────────────────────────────────────
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(11);
-      doc.setTextColor(30, 30, 30);
-      doc.text('por seu compromisso com a educação,', W / 2, 83, { align: 'center' });
-      doc.text('o respeito, a disciplina e o cuidado com a escola e com as pessoas.', W / 2, 90, { align: 'center' });
-
-      // ── Selos conquistados (entre texto e frase final) ───────────────────
-      const earnedBadgesForPdf = ALL_BADGES.filter(b => earnedIds.has(b.id));
-      if (earnedBadgesForPdf.length > 0) {
+        // 2. Escrever o Nome do estudante (acima da linha preta do template)
+        // Usamos uma fonte bonita e elegante, tamanho 24
         doc.setFont('helvetica', 'bold');
-        doc.setFontSize(9);
-        doc.setTextColor(80, 80, 80);
-        doc.text('Conquistas obtidas:', W / 2, 100, { align: 'center' });
+        doc.setFontSize(24);
+        doc.setTextColor(25, 118, 210); // Azul chamativo (#1976D2)
+        const nameText = studentName.trim().toUpperCase();
+        // A linha preta no template fica em torno de Y = 111. Vamos posicionar o texto logo acima dela.
+        doc.text(nameText, W / 2, 108, { align: 'center' });
 
-        const chips = earnedBadgesForPdf.map(b => {
-          const tier = badgeTiers[b.id];
-          const tierEmoji = tier === 'ouro' ? '🥇' : tier === 'prata' ? '🥈' : tier === 'bronze' ? '🥉' : '★';
-          return `${tierEmoji} ${b.title}`;
-        });
+        // 3. Escrever as Conquistas (abaixo do texto do pilar e acima de "Juntos, construimos...")
+        // Espaço livre no template fica entre Y = 135 e Y = 160.
+        const earnedBadgesForPdf = ALL_BADGES.filter(b => earnedIds.has(b.id));
+        if (earnedBadgesForPdf.length > 0) {
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(11);
+          doc.setTextColor(80, 80, 80);
+          doc.text('CONQUISTAS DESBLOQUEADAS:', W / 2, 142, { align: 'center' });
 
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(9);
+          const chips = earnedBadgesForPdf.map(b => {
+            const tier = badgeTiers[b.id];
+            const tierEmoji = tier === 'ouro' ? '🥇' : tier === 'prata' ? '🥈' : tier === 'bronze' ? '🥉' : '★';
+            const tierName = tier ? ` (${tier.toUpperCase()})` : '';
+            return `${tierEmoji} ${b.title}${tierName}`;
+          });
+
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(10);
+          doc.setTextColor(50, 50, 50);
+          
+          const chipsLine1 = chips.slice(0, 3).join('   •   ');
+          const chipsLine2 = chips.slice(3).join('   •   ');
+          doc.text(chipsLine1, W / 2, 150, { align: 'center' });
+          if (chipsLine2) {
+            doc.text(chipsLine2, W / 2, 156, { align: 'center' });
+          }
+        }
+
+        // 4. Escrever a Data de hoje por cima de "Data: ___/___/____" no rodapé
+        // No template, "Data:" fica na parte inferior esquerda. Y = 188.
+        const today = new Date().toLocaleDateString('pt-BR');
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(12);
         doc.setTextColor(50, 50, 50);
-        // Distribuir chips em até 2 linhas
-        const chipsLine1 = chips.slice(0, 3).join('   •   ');
-        const chipsLine2 = chips.slice(3).join('   •   ');
-        doc.text(chipsLine1, W / 2, 107, { align: 'center' });
-        if (chipsLine2) doc.text(chipsLine2, W / 2, 113, { align: 'center' });
+        doc.text(today, 84, 187, { align: 'center' });
+
+        doc.save(`Certificado_Estudante_Cidadao_${studentName.replace(/\s+/g, '_')}.pdf`);
+        setPdfSuccess(true);
+        setTimeout(() => setPdfSuccess(false), 4000);
+      } catch (err) {
+        console.error('Erro ao gerar PDF:', err);
+        alert('Ocorreu um erro ao gerar o certificado. Tente novamente.');
+      } finally {
+        setGeneratingPdf(false);
       }
+    };
 
-      // ── Frase final em azul ───────────────────────────────────────────────
-      doc.setFont('helvetica', 'bolditalic');
-      doc.setFontSize(13);
-      doc.setTextColor(0, 102, 204);
-      doc.text('Juntos, construímos uma escola melhor!', W / 2, 130, { align: 'center' });
-
-      // ── Rodapé: Data + Assinatura ─────────────────────────────────────────
-      const today = new Date().toLocaleDateString('pt-BR');
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(10);
-      doc.setTextColor(30, 30, 30);
-      // Data
-      doc.text(`Data: ${today}`, 70, 155);
-      doc.setDrawColor(30, 30, 30);
-      doc.setLineWidth(0.4);
-      doc.line(60, 158, 130, 158);
-      // Assinatura
-      doc.text('Assinatura:', 160, 155);
-      doc.line(155, 158, 240, 158);
-
-      doc.save(`Certificado_Estudante_Cidadao_${studentName.replace(/\s+/g, '_')}.pdf`);
-      setPdfSuccess(true);
-      setTimeout(() => setPdfSuccess(false), 4000);
-    } catch (err) {
-      console.error('Erro ao gerar PDF:', err);
-      alert('Ocorreu um erro ao gerar o certificado. Tente novamente.');
-    } finally {
+    img.onerror = (err) => {
+      console.error('Erro ao carregar a imagem do template:', err);
+      alert('Não foi possível carregar a imagem do template do certificado.');
       setGeneratingPdf(false);
-    }
+    };
   };
 
   return (
