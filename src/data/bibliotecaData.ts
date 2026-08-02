@@ -41,14 +41,14 @@ export const BIBLIOTECA_ITEMS: BibliotecaItem[] = [
   // Respeito
   {
     id: 'bib-4',
-    title: 'Extraordinário (Wonder): Lições de Empatia e Diversidade',
+    title: 'Curtametragem: O filho do Vizinho',
     category: 'Respeito',
-    type: 'Livro',
-    description: 'A inspiradora história de Auggie Pullman, um menino que enfrenta o preconceito e mostra o poder revolucionário da gentileza.',
-    ageGroup: '11-15 anos',
-    readingTime: 'Livro / Filme (110 min)',
-    url: 'https://www.google.com/search?q=Livro+Extraordinario+RJ+Palacio+resumo+educativo',
-    authorOrSource: 'R. J. Palacio',
+    type: 'Vídeo',
+    description: 'O curta metragem "O Filho do Vizinho" é um premiado curta-metragem brasileiro de ficção lançado em 2010, com direção, roteiro e montagem de Alex Vidigal. O filme aborda temas como infância, inclusão, amizade e diferentes perspectivas de mundo de forma leve e sensível.',
+    ageGroup: 'Para todos',
+    readingTime: '7 min de vídeo',
+    url: 'https://youtu.be/I-UMVQ9uSIc?si=oLV5JG0w2Pucrips',
+    authorOrSource: 'Alex Vidigal',
     color: '#7E57C2'
   },
   {
