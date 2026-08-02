@@ -123,36 +123,30 @@ export const ConquistasView: React.FC<ConquistasViewProps> = ({
         doc.addImage(img, 'PNG', 0, 0, W, H);
 
         // 2. Escrever o Nome do estudante (acima da linha preta do template)
-        // Usamos uma fonte bonita e elegante, tamanho 24
+        // A linha preta do template está em torno de Y = 96. Colocamos a base do texto em Y = 93.
         doc.setFont('helvetica', 'bold');
-        doc.setFontSize(24);
+        doc.setFontSize(22);
         doc.setTextColor(25, 118, 210); // Azul chamativo (#1976D2)
         const nameText = studentName.trim().toUpperCase();
-        // A linha preta no template fica em torno de Y = 111. Vamos posicionar o texto logo acima dela.
-        doc.text(nameText, W / 2, 108, { align: 'center' });
+        doc.text(nameText, W / 2, 93, { align: 'center' });
 
-        // 3. Escrever as Conquistas (abaixo do texto do pilar e acima de "Juntos, construimos...")
-        // Espaço livre no template fica entre Y = 135 e Y = 160.
+        // 3. Escrever as Conquistas (no espaço livre abaixo do texto principal e acima de "Juntos...")
+        // Usamos texto normal (sem emojis) para não quebrar a codificação de fontes do jsPDF.
         const earnedBadgesForPdf = ALL_BADGES.filter(b => earnedIds.has(b.id));
         if (earnedBadgesForPdf.length > 0) {
           doc.setFont('helvetica', 'bold');
-          doc.setFontSize(11);
-          doc.setTextColor(80, 80, 80);
-          doc.text('CONQUISTAS DESBLOQUEADAS:', W / 2, 142, { align: 'center' });
+          doc.setFontSize(10);
+          doc.setTextColor(100, 100, 100);
+          doc.text('CONQUISTAS REALIZADAS:', W / 2, 138, { align: 'center' });
 
           const chips = earnedBadgesForPdf.map(b => {
             const tier = badgeTiers[b.id];
-            const tierEmoji = tier === 'ouro' ? '🥇' : tier === 'prata' ? '🥈' : tier === 'bronze' ? '🥉' : '★';
-            const tierName = tier ? ` (${tier.toUpperCase()})` : '';
-            return `${tierEmoji} ${b.title}${tierName}`;
+            const tierLabel = tier ? `[${tier.toUpperCase()}]` : '[OK]';
+            return `${tierLabel} ${b.title.toUpperCase()}`;
           });
 
-          doc.setFont('helvetica', 'normal');
-          doc.setFontSize(10);
-          doc.setTextColor(50, 50, 50);
-          
-          const chipsLine1 = chips.slice(0, 3).join('   •   ');
-          const chipsLine2 = chips.slice(3).join('   •   ');
+          const chipsLine1 = chips.slice(0, 3).join('    ·    ');
+          const chipsLine2 = chips.slice(3).join('    ·    ');
           doc.text(chipsLine1, W / 2, 150, { align: 'center' });
           if (chipsLine2) {
             doc.text(chipsLine2, W / 2, 156, { align: 'center' });
@@ -160,12 +154,13 @@ export const ConquistasView: React.FC<ConquistasViewProps> = ({
         }
 
         // 4. Escrever a Data de hoje por cima de "Data: ___/___/____" no rodapé
-        // No template, "Data:" fica na parte inferior esquerda. Y = 188.
+        // A palavra "Data" no template fica à esquerda, a linha preta para preencher a data está logo em seguida.
+        // Centralizando o texto da data no meio da linha (X = 96) e Y = 186.
         const today = new Date().toLocaleDateString('pt-BR');
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(12);
         doc.setTextColor(50, 50, 50);
-        doc.text(today, 84, 187, { align: 'center' });
+        doc.text(today, 96, 186, { align: 'center' });
 
         doc.save(`Certificado_Estudante_Cidadao_${studentName.replace(/\s+/g, '_')}.pdf`);
         setPdfSuccess(true);
