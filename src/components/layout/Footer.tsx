@@ -154,7 +154,27 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               © 2026 Cidadania na Escola • CGDE - GRE Metropolitana Norte
             </p>
             <p className="text-[11px] text-slate-400 mt-1">
-              Desenvolvido e idealizado por: <strong>Regina Santos</strong>, <strong>Deise Marroquim</strong> e <strong>Saulo Coimbra</strong>
+              Desenvolvido e idealizado por:{' '}
+              <button
+                onClick={() => onNavigate('sobre')}
+                className="font-bold text-slate-300 hover:text-blue-400 underline transition-colors focus:outline-none"
+              >
+                Regina Santos
+              </button>
+              ,{' '}
+              <button
+                onClick={() => onNavigate('sobre')}
+                className="font-bold text-slate-300 hover:text-blue-400 underline transition-colors focus:outline-none"
+              >
+                Deise Marroquim
+              </button>{' '}
+              e{' '}
+              <button
+                onClick={() => onNavigate('sobre')}
+                className="font-bold text-slate-300 hover:text-blue-400 underline transition-colors focus:outline-none"
+              >
+                Saulo Coimbra
+              </button>
             </p>
           </div>
           <div className="flex items-center justify-center gap-4 mt-4 sm:mt-0">

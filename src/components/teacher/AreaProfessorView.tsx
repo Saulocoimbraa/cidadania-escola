@@ -63,13 +63,14 @@ export const AreaProfessorView: React.FC<AreaProfessorViewProps> = ({ onNavigate
               onClick={() => onNavigate('banco-questoes')}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-400 to-orange-500 text-slate-900 font-extrabold text-sm shadow-md hover:scale-105 transition-transform"
             >
-              <span>Acessar Banco de Questões (150+) →</span>
+              <span>Acessar Banco de Questões (40) →</span>
             </button>
 
             <SpeechButton
               text="Área do Professor: Planos de aula BNCC, rubricas de avaliação socioemocional, roteiros de debate e sugestões de projetos interdisciplinares."
               label="Ouvir Resumo Docente"
               size="md"
+              variant="white"
             />
           </div>
         </div>

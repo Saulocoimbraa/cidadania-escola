@@ -316,7 +316,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => handleNav('banco-questoes')}
             className="w-full text-left px-4 py-3 rounded-xl font-bold text-sm text-purple-700 dark:text-purple-300 hover:bg-purple-50 dark:hover:bg-purple-950/30 border border-purple-200 dark:border-purple-800"
           >
-            📝 Banco de Questões (150+ BNCC)
+            📝 Banco de Questões (40 BNCC)
           </button>
           <button
             onClick={() => handleNav('conquistas')}

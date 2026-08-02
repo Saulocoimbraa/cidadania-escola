@@ -125,6 +125,7 @@ export const DisciplinaView: React.FC<DisciplinaViewProps> = ({
               text={`${pillar.title}: ${pillar.introduction}. ${pillar.cartilhaSections.map(s => s.title + ': ' + s.content).join(' ')}`}
               label="Ouvir Cartilha Completa"
               size="md"
+              variant="white"
             />
           </div>
         </div>

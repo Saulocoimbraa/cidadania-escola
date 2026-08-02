@@ -111,6 +111,7 @@ export const SobreView: React.FC<SobreViewProps> = ({ onNavigate }) => {
               text="Projeto Cidadania na Escola. Uma iniciativa pedagógica interativa idealizada para promover a formação cidadã, o respeito mútuo, a autonomia nos estudos e o zelo pelo patrimônio escolar entre adolescentes do Ensino Fundamental."
               label="Ouvir Apresentação do Projeto"
               size="md"
+              variant="white"
             />
           </div>
         </div>

@@ -75,6 +75,7 @@ export const CuidadoView: React.FC<CuidadoViewProps> = ({
               text={`${pillar.title}: ${pillar.introduction}. ${pillar.cartilhaSections.map(s => s.title + ': ' + s.content).join(' ')}`}
               label="Ouvir Cartilha Completa"
               size="md"
+              variant="white"
             />
           </div>
         </div>

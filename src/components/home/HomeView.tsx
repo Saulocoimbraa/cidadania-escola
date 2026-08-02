@@ -347,7 +347,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 Sala dos Professores
               </h3>
               <p className="text-xs text-purple-700 dark:text-purple-300 mt-1">
-                Planos de aula BNCC, rubricas de avaliação, debates e 150+ questões.
+                Planos de aula BNCC, rubricas de avaliação, debates e 40 questões.
               </p>
             </div>
             <span className="text-xs font-bold text-purple-700 dark:text-purple-300 mt-4 inline-flex items-center gap-1">

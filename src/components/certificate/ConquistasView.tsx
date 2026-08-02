@@ -183,6 +183,7 @@ export const ConquistasView: React.FC<ConquistasViewProps> = ({
             text={`Você já conquistou ${earnedBadges.length} de ${ALL_BADGES.length} medalhas e acumulou ${totalPoints} pontos. Digite seu nome abaixo para emitir o certificado Jovem Cidadão em PDF.`}
             label="Ouvir Resumo de Conquistas"
             size="md"
+            variant="white"
           />
         </div>
       </section>

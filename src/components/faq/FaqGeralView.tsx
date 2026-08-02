@@ -70,6 +70,7 @@ export const FaqGeralView: React.FC<FaqGeralViewProps> = ({ onNavigate }) => {
             text="Perguntas Frequentes Geral do Portal Cidadania na Escola. Tire suas dúvidas sobre direitos e deveres dos estudantes, convivência, respeito e autonomia."
             label="Ouvir Introdução do FAQ"
             size="md"
+            variant="white"
           />
         </div>
       </section>
