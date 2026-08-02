@@ -78,26 +78,26 @@ export const BIBLIOTECA_ITEMS: BibliotecaItem[] = [
   // Disciplina
   {
     id: 'bib-7',
-    title: 'Hábitos Atômicos para Estudantes',
+    title: 'Como Fazer o BULLET JOURNAL mais simples de todos',
     category: 'Disciplina',
-    type: 'Livro',
-    description: 'Como pequenas mudanças diárias na rotina de estudos de 15 minutos transformam completamente suas notas e confiança na escola.',
-    ageGroup: '13-15 anos',
-    readingTime: '45 min (Resumo Prático)',
-    url: 'https://institutoayrtonsenna.org.br/busca?q=rotina+de+estudos+habitos',
-    authorOrSource: 'James Clear (Adaptação Jovem)',
+    type: 'Vídeo',
+    description: 'No vídeo, a criadora de conteúdo Susane Ribeiro ensina uma abordagem prática e minimalista para montar um Bullet Journal. O objetivo é focar apenas no que é essencial: objetivos, hábitos e atividades da semana, sem a necessidade de gastar tempo com desenhos ou decorações complexas.',
+    ageGroup: '11-15 anos',
+    readingTime: '8 min (Resumo)',
+    url: 'https://youtu.be/ORv60HxNzQo?si=2bD2Pdu4XCRpseZ-',
+    authorOrSource: 'Susane Ribeiro',
     color: '#FB8C00'
   },
   {
     id: 'bib-8',
-    title: 'O Poder da Pausa: Técnica Pomodoro Explicada para Adolescentes',
+    title: 'Método Pomodoro: como funciona a técnica de estudos mais popular do mundo',
     category: 'Disciplina',
     type: 'Artigo',
-    description: 'Passo a passo visual para usar o cronômetro sem ansiedade e evitar o cansaço mental nos dias de provas e trabalhos em grupo.',
+    description: 'O método Pomodoro é uma técnica de gestão de tempo que consiste em dividir o trabalho em blocos de 25 minutos, separados por pausas de 5 minutos.',
     ageGroup: 'Para todos',
     readingTime: '6 min de leitura',
-    url: 'https://novaescola.org.br/busca?q=tecnica+pomodoro+estudos',
-    authorOrSource: 'Nova Escola / Aprendizagem Autônoma',
+    url: 'https://www.cnnbrasil.com.br/educacao/metodo-pomodoro-como-funciona-a-tecnica-de-estudos-mais-popular-do-mundo/',
+    authorOrSource: 'CNN Brasil / Método de Aprendizagem',
     color: '#FB8C00'
   },
   // Meio Ambiente
@@ -106,11 +106,11 @@ export const BIBLIOTECA_ITEMS: BibliotecaItem[] = [
     title: 'Cartilha Escolas Sustentáveis: Patrimônio e Natureza',
     category: 'Meio Ambiente',
     type: 'Livro',
-    description: 'Como implementar coleta seletiva, horta comunitária e redução de desperdício de merenda, água e energia no Ensino Fundamental.',
+    description: 'Os desafios globais, como erradicação da fome, agricultura sustentável, saúde e bem-estar, educação de qualidade, acesso à agua potável e saneamento, cidades e comunidades sustentáveis, consumo e produção responsáveis, mudança climática global e preservação da vida na água e na terra, entre outros, exigem, mais do que nunca, uma mudança urgente em nosso estilo de vida, bem como uma transformação em nosso modo de pensar e agir.',
     ageGroup: 'Para todos',
-    readingTime: '15 min de leitura',
-    url: 'https://www.unesco.org/pt/search?text=escolas+sustentaveis',
-    authorOrSource: 'UNESCO / Ministério da Educação',
+    readingTime: '60 min de leitura',
+    url: 'https://unesdoc.unesco.org/ark:/48223/pf0000375081.locale=en',
+    authorOrSource: 'UNESCO / Sustentabilidade',
     color: '#43A047'
   },
   {
@@ -178,14 +178,14 @@ export const BIBLIOTECA_ITEMS: BibliotecaItem[] = [
   // Convivência Escolar
   {
     id: 'bib-15',
-    title: 'Grêmio Estudantil e Mediação de Conflitos: Manual Prático',
+    title: 'Guia Grêmios e Participação Estudantil na Escola',
     category: 'Convivência Escolar',
-    type: 'Artigo',
-    description: 'Como os estudantes podem criar círculos de conversa, assembleias e projetos esportivos e culturais para melhorar o clima na escola.',
+    type: 'Livro',
+    description: 'Como os estudantes podem criar grêmios e projetos para melhorar o clima na escola.',
     ageGroup: 'Para todos',
-    readingTime: '12 min de leitura',
-    url: 'https://www.gov.br/mec/pt-br/acesso-a-informacao/perguntas-frequentes/participa-jovem-educacao',
-    authorOrSource: 'Ministério da Educação (MEC)',
+    readingTime: '1h 30min de leitura',
+    url: 'https://campanha.org.br/gremios/guia-gremios-e-participacao-estudantil-na-escola/',
+    authorOrSource: 'Campanha Nacional pelo Direito à Educação',
     color: '#00897B'
   },
   {
