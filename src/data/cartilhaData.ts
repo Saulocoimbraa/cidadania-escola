@@ -113,10 +113,9 @@ export const EDUCAO_PILLAR: PillarContent = {
     }
   ],
   saibaMais: [
-    { name: 'Ministério da Educação (MEC)', description: 'Portal oficial da Educação Brasileira com orientações curriculares.', url: 'https://www.gov.br/mec' },
-    { name: 'UNICEF Brasil', description: 'Educação e direitos das crianças e adolescentes no Brasil.', url: 'https://www.unicef.org/brazil' },
-    { name: 'Instituto Ayrton Senna', description: 'Desenvolvimento das competências socioemocionais na escola.', url: 'https://institutoayrtonsenna.org.br' },
-    { name: 'Nova Escola', description: 'Artigos, reportagens e guias pedagógicos confiáveis para professores e alunos.', url: 'https://novaescola.org.br' }
+    { name: 'O Pequeno Príncipe (PDF)', description: 'Clássico literário que ensina sobre curiosidade, afeto, valorizar perguntas e a essência do aprendizado.', url: 'https://www.sesirs.org.br/sites/default/files/paragraph--files/o_pequeno_principe_-_antoine_de_saint-exupery_1.pdf' },
+    { name: 'Clube de Protagonismo', description: 'Guia do estudante para criação de espaços de aprendizagem autônomos na escola.', url: 'https://portal.educacao.pe.gov.br/wp-content/uploads/2025/02/CLUBE-DE-PROTAGONISMO-ESTUDANTES.pdf' },
+    { name: 'BBC Cérebro Leitor', description: 'Vídeo animado com Maryanne Wolf sobre as incríveis formas como a leitura molda o cérebro.', url: 'https://www.youtube.com/watch?v=sSIZ34D9qC8' }
   ],
   quiz: [
     {

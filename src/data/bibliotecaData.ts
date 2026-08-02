@@ -18,7 +18,7 @@ export const BIBLIOTECA_ITEMS: BibliotecaItem[] = [
     id: 'bib-2',
     title: 'Clube de Protagonismo: O Guia do Estudante',
     category: 'Educação',
-    type: 'Cartilha',
+    type: 'Livro',
     description: 'Clube de Protagonismo é um espaço de aprendizagem autônoma organizado pelos próprios alunos dentro da escola, focado no desenvolvimento de habilidades, na socialização e na escolha livre de temas de interesse juvenil, contando com a supervisão de um professor orientador.',
     ageGroup: '11-15 anos',
     readingTime: '10 min de leitura',
