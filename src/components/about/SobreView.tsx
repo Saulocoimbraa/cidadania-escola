@@ -25,21 +25,21 @@ export const SobreView: React.FC<SobreViewProps> = ({ onNavigate }) => {
   const authors = [
     {
       name: 'Regina Santos',
-      role: 'Idealização & Coordenação Pedagógica',
+      role: 'Pedagoga e Idealizadora',
       photo: reginaPhoto,
       badgeColor: '#1976D2',
       biography: 'Educadora apaixonada pelo desenvolvimento humano e cidadão no ambiente escolar, Regina Santos atua na idealização pedagógica do projeto Cidadania na Escola, integrando práticas socioemocionais e princípios da BNCC para fortalecer o protagonismo juvenil, a empatia e a construção de valores éticos entre estudantes do Ensino Fundamental.'
     },
     {
       name: 'Deise Marroquim',
-      role: 'Gestão Educacional & Mediação Escolar',
+      role: 'Secretariado Executivo | Serviço Social',
       photo: deisePhoto,
       badgeColor: '#7E57C2',
       biography: 'Especialista em gestão educacional e mediação de conflitos escolares, Deise Marroquim dedica sua trajetória à criação de ambientes de aprendizagem acolhedores e inclusivos, focando no combate ao bullying, na promoção da cultura de paz e no fortalecimento do diálogo transformador entre alunos, professores e a comunidade escolar.'
     },
     {
       name: 'Saulo Coimbra',
-      role: 'Metodologia & Inovação Educacional',
+      role: 'Mestre em Educação Matemática e Tecnológica',
       photo: sauloPhoto,
       badgeColor: '#FB8C00',
       biography: 'Educador e entusiasta de tecnologias educacionais aplicadas à cidadania, Saulo Coimbra atua na estruturação metodológica e interativa do projeto Cidadania na Escola, unindo inovação digital, games educativos e conteúdos acessíveis para engajar adolescentes na vivência prática dos seus direitos, deveres e autonomia.'

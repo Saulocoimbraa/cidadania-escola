@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   BookOpen,
   Search,
@@ -44,6 +44,18 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [pillarsDropdownOpen, setPillarsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Fechar dropdown ao clicar fora
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setPillarsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const pillarsList = [
     { id: 'educacao', title: 'Educação', icon: GraduationCap, color: '#1976D2' },
@@ -93,11 +105,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               Início
             </button>
 
-            {/* Pilares Dropdown */}
-            <div className="relative" onMouseLeave={() => setPillarsDropdownOpen(false)}>
+            {/* Pilares Dropdown — fechamento por click fora via useRef */}
+            <div className="relative" ref={dropdownRef}>
               <button
-                onMouseEnter={() => setPillarsDropdownOpen(true)}
-                onClick={() => setPillarsDropdownOpen(!pillarsDropdownOpen)}
+                onClick={() => setPillarsDropdownOpen(prev => !prev)}
                 className={`px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1 ${
                   ['educacao', 'respeito', 'disciplina', 'cuidado'].includes(currentView)
                     ? 'text-[#1976D2] dark:text-blue-400 font-black bg-[#1976D2]/10 dark:bg-blue-500/10'
@@ -105,20 +116,20 @@ export const Navbar: React.FC<NavbarProps> = ({
                 }`}
               >
                 <span>Os 4 Pilares</span>
-                <span className="text-[10px]">▼</span>
+                <span className={`text-[10px] transition-transform duration-200 ${pillarsDropdownOpen ? 'rotate-180' : ''}`}>▼</span>
               </button>
 
               {pillarsDropdownOpen && (
-                <div className="absolute left-0 top-full mt-1 w-60 rounded-2xl bg-white dark:bg-slate-800 p-2 shadow-2xl border-2 border-[#1976D2]/30 dark:border-slate-700 space-y-1 animate-fadeIn">
+                <div className="absolute left-0 top-full w-60 rounded-2xl bg-white dark:bg-slate-800 p-2 shadow-2xl border-2 border-[#1976D2]/30 dark:border-slate-700 space-y-1 animate-fadeIn z-50">
                   {pillarsList.map(p => {
                     const IconComp = p.icon;
                     return (
                       <button
                         key={p.id}
                         onClick={() => handleNav(p.id)}
-                        className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/80 transition-colors"
+                        className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/80 transition-colors"
                       >
-                        <span className="h-7 w-7 rounded-lg flex items-center justify-center text-white" style={{ backgroundColor: p.color }}>
+                        <span className="h-7 w-7 rounded-lg flex items-center justify-center text-white shrink-0" style={{ backgroundColor: p.color }}>
                           <IconComp className="h-4 w-4" />
                         </span>
                         <span>{p.title}</span>

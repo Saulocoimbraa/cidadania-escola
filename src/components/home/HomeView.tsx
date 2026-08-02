@@ -185,11 +185,26 @@ export const HomeView: React.FC<HomeViewProps> = ({
               ? 'text-[#5E35B1] dark:text-purple-400'
               : 'text-[#1565C0] dark:text-blue-400';
 
+            // Imagem de fundo dos cartões dos pilares
+            // Para ativar: importe o PNG e substitua undefined pelo caminho, ex: `url(${imgEducacao})`
+            // import imgEducacao from '../../img/pillar-educacao.png'; (adicionar no topo do arquivo)
+            const pillarBgImage: Record<string, string | undefined> = {
+              educacao: undefined, // ex: `url(${imgEducacao})`
+              respeito: undefined, // ex: `url(${imgRespeito})`
+              disciplina: undefined, // ex: `url(${imgDisciplina})`
+              cuidado: undefined, // ex: `url(${imgCuidado})`
+            };
+
             return (
               <div
                 key={pillar.id}
                 onClick={() => onNavigate(pillar.id)}
                 className={`group relative overflow-hidden rounded-3xl ${bgClass} border-2 border-b-8 p-8 shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all cursor-pointer flex flex-col justify-between`}
+                style={pillarBgImage[pillar.id] ? {
+                  backgroundImage: pillarBgImage[pillar.id],
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center right',
+                } : undefined}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">

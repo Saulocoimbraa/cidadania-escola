@@ -132,11 +132,6 @@ export const ConquistasView: React.FC<ConquistasViewProps> = ({
       doc.text('Professor(a) / Coordenação Pedagógica', 85, 189, { align: 'center' });
       doc.text('Coordenação Cidadania na Escola', 205, 189, { align: 'center' });
 
-      // Footer
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(9);
-      doc.setTextColor(120, 120, 120);
-      doc.text('Referências pedagógicas: MEC • BNCC • UNICEF • UNESCO • Nova Escola • SaferNet • Instituto Ayrton Senna', width / 2, 199, { align: 'center' });
 
       // Save PDF
       doc.save(`Certificado_Jovem_Cidadao_${studentName.replace(/\s+/g, '_')}.pdf`);
@@ -317,28 +312,25 @@ export const ConquistasView: React.FC<ConquistasViewProps> = ({
             return (
               <div
                 key={badge.id}
-                className={`rounded-3xl border-2 p-6 transition-all flex flex-col justify-between ${
-                  isUnlocked
+                className={`rounded-3xl border-2 p-6 transition-all flex flex-col justify-between ${isUnlocked
                     ? 'bg-white dark:bg-slate-900 border-amber-400 shadow-md'
                     : 'bg-slate-50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-800 opacity-60'
-                }`}
+                  }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span
-                      className={`h-14 w-14 rounded-2xl flex items-center justify-center text-2xl shadow-sm ${
-                        isUnlocked ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-600' : 'bg-slate-200 dark:bg-slate-700 text-slate-400'
-                      }`}
+                      className={`h-14 w-14 rounded-2xl flex items-center justify-center text-2xl shadow-sm ${isUnlocked ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-600' : 'bg-slate-200 dark:bg-slate-700 text-slate-400'
+                        }`}
                     >
                       {isUnlocked ? '🎖️' : '🔒'}
                     </span>
 
                     <span
-                      className={`text-[11px] font-extrabold uppercase px-3 py-1 rounded-full ${
-                        isUnlocked
+                      className={`text-[11px] font-extrabold uppercase px-3 py-1 rounded-full ${isUnlocked
                           ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300'
                           : 'bg-slate-200 text-slate-500 dark:bg-slate-700'
-                      }`}
+                        }`}
                     >
                       {isUnlocked ? '✓ Desbloqueada' : 'Bloqueada'}
                     </span>

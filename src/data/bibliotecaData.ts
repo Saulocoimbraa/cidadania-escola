@@ -10,7 +10,7 @@ export const BIBLIOTECA_ITEMS: BibliotecaItem[] = [
     description: 'Um clássico da literatura mundial que ensina sobre curiosidade, afeto, valorizar perguntas e a essência do aprendizado.',
     ageGroup: '11-13 anos',
     readingTime: '90 min (Leitura)',
-    url: 'https://www.google.com/search?q=O+Pequeno+Principe+leitura+livro+pdf+dominio+publico',
+    url: 'https://www.sesirs.org.br/sites/default/files/paragraph--files/o_pequeno_principe_-_antoine_de_saint-exupery_1.pdf',
     authorOrSource: 'Antoine de Saint-Exupéry / Editora',
     color: '#1976D2'
   },
@@ -115,14 +115,14 @@ export const BIBLIOTECA_ITEMS: BibliotecaItem[] = [
   },
   {
     id: 'bib-10',
-    title: 'Vídeo: Para Onde Vai o Lixo da Sua Escola?',
+    title: 'Planeta Menos1Lixo | Para onde vai nosso lixo? | EP1',
     category: 'Meio Ambiente',
     type: 'Vídeo',
-    description: 'Documentário curto e interativo mostrando a rota da reciclagem e como o cuidado com o pátio e com o patrimônio protege a cidade.',
+    description: 'No episódio de estreia de Planeta Menos1Lixo, Dandara, Max e Zezeu encaram um desafio real: falar sobre o que ninguém quer ver: o lixo. Com a mentoria de Fe Cortez, eles mergulham nos bastidores do descarte e descobrem o que realmente acontece quando jogamos algo "fora".',
     ageGroup: '11-13 anos',
-    readingTime: '8 min de vídeo',
-    url: 'https://www.futura.org.br/busca?q=lixo+reciclagem+escola',
-    authorOrSource: 'Canal Futura / Educação Ambiental',
+    readingTime: '14 min de vídeo',
+    url: 'https://youtu.be/WEojCY7QQz8?si=Qd-B6D4E0x2FUZDB',
+    authorOrSource: 'MENOS 1 LIXO / Educação Ambiental',
     color: '#43A047'
   },
   // Direitos Humanos
@@ -140,10 +140,10 @@ export const BIBLIOTECA_ITEMS: BibliotecaItem[] = [
   },
   {
     id: 'bib-12',
-    title: 'Estatuto da Criança e do Adolescente (ECA) em Quadrinhos',
+    title: 'Plenarinho',
     category: 'Direitos Humanos',
     type: 'Livro',
-    description: 'Conheça seus direitos à cidadania, à escola, ao lazer e ao respeito, além de compreender seus deveres com a coletividade.',
+    description: 'O Plenarinho é o programa oficial de educação para a democracia da Câmara dos Deputados do Brasil, voltado para o público infantojuvenil (crianças de 7 a 14 anos), além de pais e educadores',
     ageGroup: '11-15 anos',
     readingTime: '30 min de leitura',
     url: 'https://plenarinho.leg.br',
