@@ -297,7 +297,7 @@ export const RespeitoView: React.FC<RespeitoViewProps> = ({
             Multimídia & Convivência
           </span>
           <h2 className="text-2xl font-black text-slate-900 dark:text-white">
-            Vídeos Sugeridos: Empatia e Ciberbullying
+            Vídeos Sugeridos: Direitos Humanos e Discurso de Ódio
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
             Assista e debata em sala com sua turma ou família.

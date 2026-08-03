@@ -166,18 +166,16 @@ export const CuidadoView: React.FC<CuidadoViewProps> = ({
                 key={mission.id}
                 type="button"
                 onClick={() => onToggleMission(mission.id)}
-                className={`p-5 rounded-2xl text-left transition-all border flex items-start gap-4 ${
-                  isDone
-                    ? 'bg-white/90 text-slate-900 border-white shadow-lg scale-[1.01]'
-                    : 'bg-white/15 text-white hover:bg-white/25 border-white/20'
-                }`}
+                className={`p-5 rounded-2xl text-left transition-all border flex items-start gap-4 ${isDone
+                  ? 'bg-white/90 text-slate-900 border-white shadow-lg scale-[1.01]'
+                  : 'bg-white/15 text-white hover:bg-white/25 border-white/20'
+                  }`}
               >
                 <div
-                  className={`h-7 w-7 rounded-xl border-2 flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                    isDone
-                      ? 'bg-green-600 border-green-600 text-white'
-                      : 'border-white/60 text-transparent'
-                  }`}
+                  className={`h-7 w-7 rounded-xl border-2 flex items-center justify-center flex-shrink-0 mt-0.5 ${isDone
+                    ? 'bg-green-600 border-green-600 text-white'
+                    : 'border-white/60 text-transparent'
+                    }`}
                 >
                   {isDone && <CheckCircle2 className="h-5 w-5" />}
                 </div>
@@ -249,10 +247,10 @@ export const CuidadoView: React.FC<CuidadoViewProps> = ({
             Multimídia & Consciência Ambiental
           </span>
           <h2 className="text-2xl font-black text-slate-900 dark:text-white">
-            Vídeos Sugeridos: Patrimônio Público e Solidariedade
+            Vídeos Sugeridos: Cuidado, patrimonio e sustentabilidade
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            Assista aos vídeos e debata em grupo como sua turma pode cuidar do verde da escola.
+            Assista aos vídeos e debata em grupo como sua turma pode combater as formas de violência e cuidar do patrimonio da escola e do meio ambiente.
           </p>
         </div>
 

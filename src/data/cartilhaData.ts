@@ -615,7 +615,33 @@ export const CUIDADO_PILLAR: PillarContent = {
         'O vídeo mostra que a escola não é do governo, nem da direção, mas sim de toda a comunidade. Se parássemos de gastar dinheiro consertando depredação e vandalismo, qual melhoria vocês gostariam que a escola adquirisse com essa economia?',
         'Como podemos ajudar a conscientizar nossos colegas sobre a importância de não pichar carteiras, não quebrar materiais e cuidar do espaço que todos nós usamos todos os dias?'
       ]
+    },
+    {
+      id: 'v-cuid-3',
+      title: 'EDUCAÇÃO AMBIENTAL: O QUE É, PARA QUEM E PARA QUE?',
+      youtubeId: '3XDQZ0cjWDE',
+      channel: 'GEOAMBIENTAL',
+      duration: '06:49',
+      description: 'O vídeo desmistifica a ideia de que educação ambiental é "coisa só de criança pequena". A professora e geógrafa Emilia explica de forma direta que a educação ambiental serve para consertar a "bagunça" feita pelas gerações passadas e incentiva os jovens a tomarem a frente no desenvolvimento de bons hábitos, indo muito além do básico (como não jogar lixo no chão) e pensando em formas ativas de preservação.',
+      debateQuestions: [
+        'O vídeo afirma que os problemas ambientais são urgentes e não devem ser deixados para o futuro. Quais "bagunças" ambientais (desperdício de água, lixo espalhado, falta de reciclagem) nós identificamos no nosso dia a dia escolar e como podemos resolvê-las juntos?',
+        'Além do básico como "jogar lixo no lixo", quais outras ações criativas e diferentes os jovens da nossa idade podem promover para melhorar o meio ambiente ao nosso redor?'
+      ]
+    },
+    {
+      id: 'v-cuid-3',
+      title: 'Desenvolvimento sustentável - Brasil Escola',
+      youtubeId: 'BrPo3_szBP8',
+      channel: 'Brasil Escola Oficial',
+      duration: '12:29',
+      description: 'De forma muito didática, a professora Larissa Mesquita explica o conceito de desenvolvimento sustentável e sua evolução histórica, desde o período de maior agressão aos recursos naturais até a criação da Agenda 2030 da ONU. O vídeo detalha os 17 Objetivos de Desenvolvimento Sustentável (ODS) de forma acessível para estudantes.',
+      debateQuestions: [
+        'Observando os 17 Objetivos de Desenvolvimento Sustentável (ODS) da Agenda 2030 citados no vídeo, quais deles nossa escola mais precisa colocar em prática hoje e que ações nós, alunos, podemos liderar para que isso aconteça?',
+        'Pensando no consumo do nosso dia a dia, quais pequenos hábitos podemos mudar dentro e fora da sala de aula para ajudar a atingir as metas de sustentabilidade?'
+      ]
     }
+
+
   ],
   saibaMais: [
     { name: 'UNESCO - Educação para o Desenvolvimento Sustentável', description: 'Diretrizes mundiais da UNESCO para escolas sustentáveis e cidadãs.', url: 'https://www.unesco.org/pt' },

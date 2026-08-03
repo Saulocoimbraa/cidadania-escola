@@ -198,41 +198,37 @@ export const DisciplinaView: React.FC<DisciplinaViewProps> = ({
           <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-2xl text-xs font-bold">
             <button
               onClick={() => setActiveToolTab('todo')}
-              className={`px-3 py-2 rounded-xl transition-colors ${
-                activeToolTab === 'todo'
+              className={`px-3 py-2 rounded-xl transition-colors ${activeToolTab === 'todo'
                   ? 'bg-orange-500 text-white shadow-sm'
                   : 'text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700'
-              }`}
+                }`}
             >
               📋 Lista de Tarefas
             </button>
             <button
               onClick={() => setActiveToolTab('checklist')}
-              className={`px-3 py-2 rounded-xl transition-colors ${
-                activeToolTab === 'checklist'
+              className={`px-3 py-2 rounded-xl transition-colors ${activeToolTab === 'checklist'
                   ? 'bg-orange-500 text-white shadow-sm'
                   : 'text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700'
-              }`}
+                }`}
             >
               ✅ Checklist Diário
             </button>
             <button
               onClick={() => setActiveToolTab('weekly')}
-              className={`px-3 py-2 rounded-xl transition-colors ${
-                activeToolTab === 'weekly'
+              className={`px-3 py-2 rounded-xl transition-colors ${activeToolTab === 'weekly'
                   ? 'bg-orange-500 text-white shadow-sm'
                   : 'text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700'
-              }`}
+                }`}
             >
               📅 Organizador Semanal
             </button>
             <button
               onClick={() => setActiveToolTab('calendar')}
-              className={`px-3 py-2 rounded-xl transition-colors ${
-                activeToolTab === 'calendar'
+              className={`px-3 py-2 rounded-xl transition-colors ${activeToolTab === 'calendar'
                   ? 'bg-orange-500 text-white shadow-sm'
                   : 'text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700'
-              }`}
+                }`}
             >
               🗓️ Calendário Escolar
             </button>
@@ -283,11 +279,10 @@ export const DisciplinaView: React.FC<DisciplinaViewProps> = ({
               {todos.map(todo => (
                 <div
                   key={todo.id}
-                  className={`flex items-center justify-between gap-3 p-4 rounded-2xl border transition-colors ${
-                    todo.completed
+                  className={`flex items-center justify-between gap-3 p-4 rounded-2xl border transition-colors ${todo.completed
                       ? 'bg-slate-50 dark:bg-slate-800/40 border-slate-100 dark:border-slate-800 opacity-60 line-through'
                       : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'
-                  }`}
+                    }`}
                 >
                   <button
                     type="button"
@@ -295,9 +290,8 @@ export const DisciplinaView: React.FC<DisciplinaViewProps> = ({
                     className="flex items-center gap-3 text-left flex-1 font-medium text-sm text-slate-800 dark:text-slate-200"
                   >
                     <div
-                      className={`h-5 w-5 rounded-lg border-2 flex items-center justify-center flex-shrink-0 ${
-                        todo.completed ? 'bg-orange-500 border-orange-500 text-white' : 'border-slate-300 dark:border-slate-600'
-                      }`}
+                      className={`h-5 w-5 rounded-lg border-2 flex items-center justify-center flex-shrink-0 ${todo.completed ? 'bg-orange-500 border-orange-500 text-white' : 'border-slate-300 dark:border-slate-600'
+                        }`}
                     >
                       {todo.completed && <CheckCircle2 className="h-4 w-4" />}
                     </div>
@@ -306,13 +300,12 @@ export const DisciplinaView: React.FC<DisciplinaViewProps> = ({
 
                   <div className="flex items-center gap-2">
                     <span
-                      className={`text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full ${
-                        todo.priority === 'Alta'
+                      className={`text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full ${todo.priority === 'Alta'
                           ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300'
                           : todo.priority === 'Média'
-                          ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300'
-                          : 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'
-                      }`}
+                            ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300'
+                            : 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'
+                        }`}
                     >
                       {todo.priority}
                     </span>
@@ -344,16 +337,14 @@ export const DisciplinaView: React.FC<DisciplinaViewProps> = ({
                   key={habit.id}
                   type="button"
                   onClick={() => toggleHabit(habit.id)}
-                  className={`w-full flex items-center gap-3 p-4 rounded-2xl border transition-colors text-left font-medium text-sm ${
-                    habit.checked
+                  className={`w-full flex items-center gap-3 p-4 rounded-2xl border transition-colors text-left font-medium text-sm ${habit.checked
                       ? 'bg-orange-50 dark:bg-orange-950/20 border-orange-200 dark:border-orange-800 text-orange-900 dark:text-orange-200'
                       : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200'
-                  }`}
+                    }`}
                 >
                   <div
-                    className={`h-5 w-5 rounded-lg border-2 flex items-center justify-center flex-shrink-0 ${
-                      habit.checked ? 'bg-orange-500 border-orange-500 text-white' : 'border-slate-300 dark:border-slate-600'
-                    }`}
+                    className={`h-5 w-5 rounded-lg border-2 flex items-center justify-center flex-shrink-0 ${habit.checked ? 'bg-orange-500 border-orange-500 text-white' : 'border-slate-300 dark:border-slate-600'
+                      }`}
                   >
                     {habit.checked && <CheckCircle2 className="h-4 w-4" />}
                   </div>
@@ -485,10 +476,10 @@ export const DisciplinaView: React.FC<DisciplinaViewProps> = ({
             Multimídia & Estudo
           </span>
           <h2 className="text-2xl font-black text-slate-900 dark:text-white">
-            Vídeos Sugeridos: Hábitos, Foco e Motivação
+            Vídeos Sugeridos: Hábitos, Direitos e Deveres
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            Assista a orientações sobre como vencer a procrastinação e melhorar suas notas.
+            Assista nossas sugestões de vídeos e responda os questionamentos.
           </p>
         </div>
 
