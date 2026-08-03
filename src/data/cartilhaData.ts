@@ -89,26 +89,26 @@ export const EDUCAO_PILLAR: PillarContent = {
   videos: [
     {
       id: 'v-edu-1',
-      title: 'Por que a Escola é importante para o seu futuro?',
-      youtubeId: 'L_LUpnjgPso',
-      channel: 'Canal Futura',
-      duration: '4:15',
-      description: 'Vídeo animado explicando como a educação básica impacta as oportunidades e o desenvolvimento pessoal do adolescente.',
+      title: 'Diferença entre “ouvir” e “escutar”? Prof. Noslen explica!',
+      youtubeId: 'B99GrtIeejQ',
+      channel: 'Professor Noslen',
+      duration: '5:16',
+      description: 'Nesta aula de língua portuguesa, o professor explica a diferença entre "ouvir" (uma ação natural) e "escutar" (um processo cognitivo e intencional), destacando a importância da interpretação na nossa comunicação.',
       debateQuestions: [
-        'Qual o papel da escola no seu projeto de vida para os próximos 5 anos?',
-        'Como você pode ajudar um colega que está desmotivado com os estudos?'
+        'Como a habilidade de "escutar" ativamente (com atenção e compreensão) pode melhorar o nosso aprendizado na sala de aula?',
+        'Você acha que os estudantes hoje em dia mais ouvem ou escutam o que os professores estão ensinando?'
       ]
     },
     {
       id: 'v-edu-2',
-      title: 'Protagonismo Juvenil na Escola',
-      youtubeId: 'sBws8MSXN7A',
-      channel: 'Nova Escola / MEC',
-      duration: '5:30',
-      description: 'Como estudantes do Ensino Fundamental - Anos Finais podem participar ativamente das melhorias na escola.',
+      title: 'FAKE NEWS',
+      youtubeId: '9nq0AhRrKR4',
+      channel: 'Textualizando',
+      duration: '09:46',
+      description: 'Uma explicação sobre o que são Fake News, focando na importância de ter cuidado com fontes de pesquisa na escola e na universidade, e estimulando a leitura crítica e questionadora.',
       debateQuestions: [
-        'O que você mudaria hoje na sua escola com a colaboração da sua turma?',
-        'O que significa ser protagonista na prática?'
+        'Por que ter uma boa educação e ler de forma crítica são as nossas maiores armas contra as Fake News?',
+        'Quando vocês vão fazer um trabalho escolar, como vocês garantem que o site onde estão pesquisando é realmente confiável?'
       ]
     }
   ],
@@ -237,26 +237,26 @@ export const RESPEITO_PILLAR: PillarContent = {
   videos: [
     {
       id: 'v-resp-1',
-      title: 'Empatia: O que significa se colocar no lugar do outro?',
-      youtubeId: '1Evwgu369Jw',
-      channel: 'UNICEF Brasil',
-      duration: '3:45',
-      description: 'Como a empatia constrói laços fortes e combate o isolamento escolar.',
+      title: 'Direitos Humanos',
+      youtubeId: 'hGKAaVoDlSs',
+      channel: 'ONU Mulheres Brasil',
+      duration: '03:03',
+      description: 'Uma introdução clara aos Direitos Humanos, destacando que, apesar das nossas diferenças, todos somos seres humanos livres, iguais e que merecem ser respeitados e protegidos.',
       debateQuestions: [
-        'Você já presenciou alguém sofrendo por uma "brincadeira" de mau gosto?',
-        'O que muda na sala de aula quando praticamos a escuta atenta?'
+        'Quais atitudes simples no nosso dia a dia na escola mostram que estamos respeitando os direitos básicos dos nossos colegas?',
+        'Por que é importante entender que os direitos humanos valem para todas as pessoas, sem nenhuma distinção de cor, gênero ou religião?'
       ]
     },
     {
       id: 'v-resp-2',
-      title: 'Bullying não é brincadeira: Ciberbullying e Internet Segura',
-      youtubeId: 'y-u7qL9iL1k',
-      channel: 'SaferNet Brasil',
-      duration: '4:50',
-      description: 'Os impactos das mensagens nas redes sociais e como ser um cidadão ético no mundo digital.',
+      title: 'DISCURSO DE ÓDIO NA INTERNET | CRIME E INTOLERÂNCIA NAS REDES SOCIAIS | CULTURA DO CANCELAMENTO',
+      youtubeId: 'CUZC9GcVotY',
+      channel: 'Me Julga - Cíntia Brunelli',
+      duration: '08:43',
+      description: 'O vídeo aborda a intolerância nas redes sociais, explicando a linha tênue entre liberdade de expressão e discurso de ódio, além de refletir sobre as graves consequências da cultura do cancelamento.',
       debateQuestions: [
-        'Por que o ciberbullying pode machucar tanto quanto agressões presenciais?',
-        'O que fazer se um grupo de chat começar a atacar um colega da turma?'
+        'Como podemos diferenciar uma simples opinião (liberdade de expressão) de um discurso de ódio que fere alguém na internet?',
+        'Vocês já presenciaram a cultura do cancelamento nas redes sociais? Como podemos resolver conflitos de forma saudável sem "cancelar" ou humilhar a pessoa?'
       ]
     }
   ],
@@ -447,26 +447,26 @@ export const DISCIPLINA_PILLAR: PillarContent = {
   videos: [
     {
       id: 'v-disc-1',
-      title: 'Como organizar os estudos e vencer a Procrastinação',
-      youtubeId: 'ILq710A8_NE',
-      channel: 'Nova Escola',
-      duration: '5:10',
-      description: 'Dicas práticas de gestão de tempo e neurociência adaptadas para estudantes de 11 a 15 anos.',
+      title: 'Procrastinação',
+      youtubeId: 'Mivz8Qh-DwI',
+      channel: 'Minutos Psíquicos',
+      duration: '04:33',
+      description: 'O canal Minutos Psíquicos (que faz parte do projeto de educação científica do YouTube) explica em formato de animação o que realmente acontece no nosso cérebro quando procrastinamos. O vídeo mostra que "enrolar" para estudar não é apenas preguiça, mas uma forma de evitar o estresse gerado por tarefas difíceis. Além de explicar o problema, o vídeo traz métodos práticos de estudo e disciplina, como a técnica de dividir trabalhos grandes em partes pequenas e recompensar o próprio esforço.',
       debateQuestions: [
-        'Qual é a sua maior distração quando tenta fazer a lição de casa?',
-        'Como o método Pomodoro ou pequenas pausas podem ajudar no foco?'
+        'O vídeo diz que um dos maiores motivos de procrastinarmos é achar que "precisamos estar com vontade" para começar a estudar. Como podemos treinar nossa disciplina para começar uma tarefa mesmo quando não estamos motivados?',
+        'Uma das dicas do vídeo é dividir uma tarefa assustadora em partes menores. Se tivermos um trabalho escolar grande para entregar daqui a duas semanas, como podemos usar essa técnica prática na nossa rotina hoje para não deixar tudo para a última hora?'
       ]
     },
     {
       id: 'v-disc-2',
-      title: 'Hábitos positivos e o Poder da Constância',
-      youtubeId: 'W8r-tXPrn_k',
-      channel: 'Canal Futura',
-      duration: '4:20',
-      description: 'Por que fazer um pouco todos os dias é muito mais fácil do que deixar tudo para a véspera.',
+      title: '[ Libras e LSE ] Constituição de 1988 - A Constituição Cidadã',
+      youtubeId: 'HwLdPSaWTM0',
+      channel: 'Profa Anelize',
+      duration: '13:57',
+      description: 'Uma aula sobre a Constituição de 1988, explicando o conceito de cidadania, como ela estabelece os direitos e deveres dos cidadãos e a importância das leis para o funcionamento da sociedade.',
       debateQuestions: [
-        'Cite um hábito positivo que você quer implementar esta semana.',
-        'Como a disciplina melhora nossa convivência familiar?'
+        'Assim como um país tem a sua Constituição para organizar a sociedade, a escola tem suas próprias regras. Como o cumprimento dessas regras ajuda na nossa convivência?',
+        'O que significa ser um "cidadão" dentro do ambiente escolar e quais seriam os nossos principais deveres como estudantes?'
       ]
     }
   ],
@@ -594,26 +594,26 @@ export const CUIDADO_PILLAR: PillarContent = {
   videos: [
     {
       id: 'v-cuid-1',
-      title: 'Patrimônio Público e Cidadania: A Escola é Nossa!',
-      youtubeId: 'Z9Y24_3nC5o',
-      channel: 'Canal Futura',
-      duration: '4:40',
-      description: 'Como o cuidado com os bens públicos reflete a consciência cidadã de um povo.',
+      title: 'Você conhece as formas de violência contra crianças e adolescentes? | UNICEF Brasil',
+      youtubeId: 'nBTyYgr0W7Q',
+      channel: 'UNICEF Brasil',
+      duration: '02:09',
+      description: 'Vídeo animado do UNICEF que alerta sobre as diferentes formas de violência contra os jovens e incentiva a ativação da rede de proteção para garantir que todos estejam seguros.',
       debateQuestions: [
-        'Por que algumas pessoas têm a falsa ideia de que "o que é público pode estragar"?',
-        'Como valorizar o trabalho dos zeladores e funcionários da escola?'
+        'Se vocês perceberem que um amigo está passando por alguma situação de violência ou bullying, a quem vocês devem recorrer para pedir ajuda dentro e fora da escola?',
+        'Como podemos ajudar a criar um ambiente mais acolhedor e seguro, onde todos os alunos se sintam protegidos?'
       ]
     },
     {
       id: 'v-cuid-2',
-      title: 'Sustentabilidade e Meio Ambiente na Escola',
-      youtubeId: 'p2ZzP3U2E4U',
-      channel: 'UNESCO / MEC',
-      duration: '5:15',
-      description: 'Como iniciativas de coleta seletiva e hortas escolares mudam a consciência dos alunos.',
+      title: 'Patrimônio Escolar',
+      youtubeId: 'OzsfOLBmbkU',
+      channel: 'Will Stopinski',
+      duration: '02:58',
+      description: 'Um vídeo curto e dinâmico, em formato de animação, que ensina uma lição importantíssima: o patrimônio escolar não envolve apenas o espaço físico (cadeiras, muros, banheiros), mas a história de quem passa por lá. O vídeo ilustra muito bem como o dinheiro público, que poderia ser usado para comprar equipamentos novos (como internet ou tabelas de basquete), acaba sendo desperdiçado para consertar vidros quebrados e paredes pichadas.',
       debateQuestions: [
-        'Qual ação sustentável poderíamos começar na nossa escola este mês?',
-        'Qual o papel da juventude na proteção do meio ambiente?'
+        'O vídeo mostra que a escola não é do governo, nem da direção, mas sim de toda a comunidade. Se parássemos de gastar dinheiro consertando depredação e vandalismo, qual melhoria vocês gostariam que a escola adquirisse com essa economia?',
+        'Como podemos ajudar a conscientizar nossos colegas sobre a importância de não pichar carteiras, não quebrar materiais e cuidar do espaço que todos nós usamos todos os dias?'
       ]
     }
   ],

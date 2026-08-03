@@ -1,9 +1,3 @@
-# Mapeamento de Vídeos do Projeto
-
-Este arquivo mapeia todos os **10 vídeos** cadastrados na aplicação para fácil revisão e substituição individual dos links, IDs e descrições.
-
----
-
 ## 📚 1. Vídeos da Cartilha / Pilares (`src/data/cartilhaData.ts`)
 
 ### Pilar: Educação
@@ -83,25 +77,3 @@ Este arquivo mapeia todos os **10 vídeos** cadastrados na aplicação para fác
 - **Link Atual (YouTube)**: https://www.youtube.com/watch?v=p2ZzP3U2E4U (ID: `p2ZzP3U2E4U`)
 - **Descrição**: Como iniciativas de coleta seletiva e hortas escolares mudam a consciência dos alunos.
 - **Localização no Código**: [src/data/cartilhaData.ts: L591-L603](file:///c:/Users/Benjamin/Desktop/cidadania-na-escola/src/data/cartilhaData.ts#L591-L603)
-
----
-
-## 📖 2. Vídeos da Biblioteca Virtual (`src/data/bibliotecaData.ts`)
-
-#### 9. Como o Cérebro Aprende? Dicas de Neurociência para Jovens
-- **ID**: `bib-3`
-- **Categoria**: Educação | **Tipo**: Vídeo
-- **Canal / Autor**: Canal Futura / Neurociência na Escola
-- **Duração**: 12 min de vídeo
-- **Link Atual**: https://www.youtube.com/results?search_query=como+o+cerebro+aprende+neurociencia+canal+futura
-- **Descrição**: Vídeo educativo animado explicando a formação das sinapses, a importância de dormir e como o esforço contínuo fortalece a inteligência.
-- **Localização no Código**: [src/data/bibliotecaData.ts: L30-L40](file:///c:/Users/Benjamin/Desktop/cidadania-na-escola/src/data/bibliotecaData.ts#L30-L40)
-
-#### 10. Vídeo: Para Onde Vai o Lixo da Sua Escola?
-- **ID**: `bib-10`
-- **Categoria**: Meio Ambiente | **Tipo**: Vídeo
-- **Canal / Autor**: Canal Futura / Educação Ambiental
-- **Duração**: 8 min de vídeo
-- **Link Atual**: https://www.futura.org.br/busca?q=lixo+reciclagem+escola
-- **Descrição**: Documentário curto e interativo mostrando a rota da reciclagem e como o cuidado com o pátio e com o patrimônio protege a cidade.
-- **Localização no Código**: [src/data/bibliotecaData.ts: L117-L127](file:///c:/Users/Benjamin/Desktop/cidadania-na-escola/src/data/bibliotecaData.ts#L117-L127)
